@@ -1,0 +1,15 @@
+{
+  "name": "newbem",
+  "version": "1.0.0",
+  "description": "Creates block__element_modifier_modifier-value styl files",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/ --reporter nyan"
+  },
+  "author": "Vladimir Rodkin",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "mocha": "^2.2.1"
+  }
+}
