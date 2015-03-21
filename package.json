@@ -1,6 +1,6 @@
 {
   "name": "newbem",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Creates block__element_modifier_modifier-value styl files",
   "main": "index.js",
   "scripts": {
