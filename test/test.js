@@ -6,49 +6,49 @@ var testData = [
     {
         data: '',
         block: '',
-        element: '',
+        elem: '',
         modName: '',
         modValue: '',
     },
     {
         data: 'block',
         block: 'block',
-        element: '',
+        elem: '',
         modName: '',
         modValue: '',
     },
     {
         data: 'block_mod',
         block: 'block',
-        element: '',
+        elem: '',
         modName: 'mod',
         modValue: '',
     },
     {
         data: 'block_mod-name_mod-val',
         block: 'block',
-        element: '',
+        elem: '',
         modName: 'mod-name',
         modValue: 'mod-val',
     },
     {
         data: 'block__elem',
         block: 'block',
-        element: 'elem',
+        elem: 'elem',
         modName: '',
         modValue: '',
     },
     {
         data: 'block__elem_mod',
         block: 'block',
-        element: 'elem',
+        elem: 'elem',
         modName: 'mod',
         modValue: '',
     },
     {
         data: 'block__elem_mod-name_mod-val',
         block: 'block',
-        element: 'elem',
+        elem: 'elem',
         modName: 'mod-name',
         modValue: 'mod-val',
     },
@@ -72,21 +72,16 @@ describe('newbem', function () {
                 );
             });
         });
-
-        it('should return block name', function () {
-            assert.equal(
-                newbem.getBlockName('block__element'),
-                'block'
-            );
-        });
     });
 
     describe('#getElementName', function () {
         it('should return element name', function () {
-            assert.equal(
-                newbem.getElementName(''),
-                ''
-            );
+            _.forEach(testData, function (data) {
+                assert.equal(
+                    newbem.getElementName(data.data),
+                    data.elem
+                );
+            });
         });
     });
 });

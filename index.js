@@ -16,6 +16,12 @@ module.exports = {
     },
 
     getElementName: function (name) {
-        return name
+        var result = '';
+
+        if (/__/.test(name)) {
+            result = name.split('__')[1].split('_')[0];
+        }
+
+        return result;
     },
 };
