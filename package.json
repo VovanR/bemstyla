@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^2.1.2",
+    "lodash": "^3.6.0",
     "mocha": "^2.2.1"
   }
 }

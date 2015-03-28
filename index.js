@@ -10,7 +10,9 @@ module.exports = {
     },
 
     getBlockName: function (name) {
-        return name;
+        var result = name.split('_')[0];
+
+        return result;
     },
 
     getElementName: function (name) {
