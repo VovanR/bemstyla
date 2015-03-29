@@ -78,4 +78,22 @@ module.exports = {
 
         return result;
     },
+
+    /**
+     * @param {String} name
+     * @return {String}
+     */
+    getElementModifierValue: function (name) {
+        var result = '';
+
+        if (/__/.test(name)) {
+            name = name.split('__')[1];
+
+            if (/_/.test(name)) {
+                result = name.split('_')[2] || '';
+            }
+        }
+
+        return result;
+    },
 };

@@ -183,4 +183,15 @@ describe('newbem', function () {
             });
         });
     });
+
+    describe('#getElementModifierValue', function () {
+        it('should return element modifier value', function () {
+            _.forEach(testData, function (data) {
+                assert.equal(
+                    newbem.getElementModifierValue(data.data),
+                    data.elem.mod.value
+                );
+            });
+        });
+    });
 });
