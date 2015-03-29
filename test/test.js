@@ -1,9 +1,10 @@
 var assert = require('chai').assert;
 var newbem = require('../index');
 var _ = require('lodash');
-var jf = require('jsonfile');
+var yaml = require('js-yaml');
+var fs = require('fs');
 
-var testData = jf.readFile('./test-cases.json', function () {});
+var testData = yaml.safeLoad(fs.readFileSync('./test/test-cases.yml', 'utf8'));
 
 describe('newbem', function () {
     it('should be `Object`', function () {
