@@ -5,52 +5,122 @@ var _ = require('lodash');
 var testData = [
     {
         data: '',
-        block: '',
-        elem: '',
-        modName: '',
-        modValue: '',
+        block: {
+            name: '',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
+        elem: {
+            name: '',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
     },
     {
         data: 'block',
-        block: 'block',
-        elem: '',
-        modName: '',
-        modValue: '',
+        block: {
+            name: 'block',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
+        elem: {
+            name: '',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
     },
     {
         data: 'block_mod',
-        block: 'block',
-        elem: '',
-        modName: 'mod',
-        modValue: '',
+        block: {
+            name: 'block',
+            mod: {
+                name: 'mod',
+                value: '',
+            },
+        },
+        elem: {
+            name: '',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
     },
     {
         data: 'block_mod-name_mod-val',
-        block: 'block',
-        elem: '',
-        modName: 'mod-name',
-        modValue: 'mod-val',
+        block: {
+            name: 'block',
+            mod: {
+                name: 'mod-name',
+                value: 'mod-val',
+            },
+        },
+        elem: {
+            name: '',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
     },
     {
         data: 'block__elem',
-        block: 'block',
-        elem: 'elem',
-        modName: '',
-        modValue: '',
+        block: {
+            name: 'block',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
+        elem: {
+            name: 'elem',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
     },
     {
         data: 'block__elem_mod',
-        block: 'block',
-        elem: 'elem',
-        modName: 'mod',
-        modValue: '',
+        block: {
+            name: 'block',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
+        elem: {
+            name: 'elem',
+            mod: {
+                name: 'mod',
+                value: '',
+            },
+        },
     },
     {
         data: 'block__elem_mod-name_mod-val',
-        block: 'block',
-        elem: 'elem',
-        modName: 'mod-name',
-        modValue: 'mod-val',
+        block: {
+            name: 'block',
+            mod: {
+                name: '',
+                value: '',
+            },
+        },
+        elem: {
+            name: 'elem',
+            mod: {
+                name: 'mod-name',
+                value: 'mod-val',
+            },
+        },
     },
 ];
 
@@ -59,16 +129,12 @@ describe('newbem', function () {
         assert.isObject(newbem);
     });
 
-    it('should return `true`', function () {
-        assert.isTrue(newbem.getTrue());
-    });
-
     describe('#getBlockName', function () {
         it('should return block name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     newbem.getBlockName(data.data),
-                    data.block
+                    data.block.name
                 );
             });
         });
@@ -79,7 +145,18 @@ describe('newbem', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     newbem.getElementName(data.data),
-                    data.elem
+                    data.elem.name
+                );
+            });
+        });
+    });
+
+    describe('#getBlockModifierName', function () {
+        it('should return block modifier name', function () {
+            _.forEach(testData, function (data) {
+                assert.equal(
+                    newbem.getBlockModifierName(data.data),
+                    data.block.mod.name
                 );
             });
         });
