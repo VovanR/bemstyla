@@ -161,4 +161,15 @@ describe('newbem', function () {
             });
         });
     });
+
+    describe('#getBlockModifierValue', function () {
+        it('should return block modifier value', function () {
+            _.forEach(testData, function (data) {
+                assert.equal(
+                    newbem.getBlockModifierValue(data.data),
+                    data.block.mod.value
+                );
+            });
+        });
+    });
 });

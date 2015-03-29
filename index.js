@@ -44,4 +44,20 @@ module.exports = {
 
         return result;
     },
+
+    /**
+     * @param {String} name
+     * @return {String}
+     */
+    getBlockModifierValue: function (name) {
+        var result = '';
+
+        if (/_/.test(name)) {
+            if (!/__/.test(name)) {
+                result = name.split('_')[2] || '';
+            }
+        }
+
+        return result;
+    },
 };
