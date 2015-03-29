@@ -172,4 +172,15 @@ describe('newbem', function () {
             });
         });
     });
+
+    describe('#getElementModifierName', function () {
+        it('should return element modifier name', function () {
+            _.forEach(testData, function (data) {
+                assert.equal(
+                    newbem.getElementModifierName(data.data),
+                    data.elem.mod.name
+                );
+            });
+        });
+    });
 });
