@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
+var jsonlint = require('gulp-jsonlint');
 
 gulp.task('test', function () {
     return gulp.src('./test/**/*.js', { read: false })
@@ -10,8 +11,15 @@ gulp.task('test', function () {
         }));
 });
 
-gulp.task('watch', function () {
-    gulp.watch(['./index.js', './test/**/*.js'], ['test']);
+gulp.task('jsonlint', function () {
+    gulp.src('./test/test-cases.json')
+        .pipe(jsonlint())
+        .pipe(jsonlint.reporter());
 });
 
-gulp.task('default', ['watch']);
+gulp.task('watch', function () {
+    gulp.watch(['./index.js', './test/**/*.js'], ['test']);
+    gulp.watch(['./test/test-cases.json'], ['jsonlint', 'test']);
+});
+
+gulp.task('default', ['jsonlint', 'test', 'watch']);

@@ -1,0 +1,138 @@
+[
+  {
+    "data": "",
+    "block": {
+      "name": "",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block_mod",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "mod",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block_mod-name_mod-val",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "mod-name",
+        "value": "mod-val"
+      }
+    },
+    "elem": {
+      "name": "",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block__elem",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "elem",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block__elem_mod",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "elem",
+      "mod": {
+        "name": "mod",
+        "value": ""
+      }
+    }
+  },
+  {
+    "data": "block__elem_mod-name_mod-val",
+    "block": {
+      "name": "block",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "elem",
+      "mod": {
+        "name": "mod-name",
+        "value": "mod-val"
+      }
+    }
+  },
+  {
+    "data": "foo__bar_baz",
+    "block": {
+      "name": "foo",
+      "mod": {
+        "name": "",
+        "value": ""
+      }
+    },
+    "elem": {
+      "name": "bar",
+      "mod": {
+        "name": "baz",
+        "value": ""
+      }
+    }
+  }
+]
