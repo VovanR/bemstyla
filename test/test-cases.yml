@@ -93,3 +93,75 @@
     mod:
       name: baz
       value: ''
+
+- data: block_mod__elem
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: ''
+      value: ''
+
+- data: block_mod__elem_mod
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: mod
+      value: ''
+
+- data: block_mod__elem_mod-name_mod-val
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: mod-name
+      value: mod-val
+
+- data: block_mod-name_mod-val__elem
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: ''
+      value: ''
+
+- data: block_mod-name_mod-val__elem_mod
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: mod
+      value: ''
+
+- data: block_mod-name_mod-val__elem_mod-name_mod-val
+  block:
+    name: block
+    mod:
+      name: ''
+      value: ''
+  elem:
+    name: elem
+    mod:
+      name: mod-name
+      value: mod-val
