@@ -12,7 +12,7 @@ gulp.task('test', function () {
 
 gulp.task('watch', function () {
     gulp.watch([
-        './index.js',
+        './lib/**/*.js',
         './test/**/*.js',
         './test/**/*.yml',
     ], ['test']);

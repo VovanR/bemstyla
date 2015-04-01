@@ -1,10 +1,10 @@
 var assert = require('chai').assert;
-var newbem = require('../index');
+var newbem = require('../lib/parser');
 var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 
-var testData = yaml.safeLoad(fs.readFileSync('./test/test-cases.yml', 'utf8'));
+var testData = yaml.safeLoad(fs.readFileSync('./test/parser-test-cases.yml', 'utf8'));
 
 describe('newbem', function () {
     it('should be `Object`', function () {
