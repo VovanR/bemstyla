@@ -76,4 +76,18 @@ describe('newbem', function () {
             });
         });
     });
+
+    describe('#parse', function () {
+        it('should return parsed JSON object', function () {
+            _.forEach(testData, function (data) {
+                assert.deepEqual(
+                    newbem.parse(data.data),
+                    {
+                        block: data.block,
+                        elem: data.elem,
+                    }
+                );
+            });
+        });
+    });
 });
