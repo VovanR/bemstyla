@@ -22,33 +22,33 @@ describe('formatFileName', function () {
         });
     });
 
-    describe('#getBlockModifierName', function () {
+    describe('#getBlockModName', function () {
         it('should format block modifier file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getBlockModifierName(data.input),
+                    formatFileName.getBlockModName(data.input),
                     data.output.block.mod.file.name
                 );
             });
         });
     });
 
-    describe('#getElementName', function () {
+    describe('#getElemName', function () {
         it('should format element file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getElementName(data.input),
+                    formatFileName.getElemName(data.input),
                     data.output.elem.file.name
                 );
             });
         });
     });
 
-    describe('#getElementModifierName', function () {
+    describe('#getElemModName', function () {
         it('should format element modifier file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getElementModifierName(data.input),
+                    formatFileName.getElemModName(data.input),
                     data.output.elem.mod.file.name
                 );
             });

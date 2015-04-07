@@ -22,33 +22,33 @@ describe('formatFileDir', function () {
         });
     });
 
-    describe('#getBlockModifierDir', function () {
+    describe('#getBlockModDir', function () {
         it('should format block modifier dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getBlockModifierDir(data.input),
+                    formatFileDir.getBlockModDir(data.input),
                     data.output.block.mod.file.dir
                 );
             });
         });
     });
 
-    describe('#getElementDir', function () {
+    describe('#getElemDir', function () {
         it('should format element dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getElementDir(data.input),
+                    formatFileDir.getElemDir(data.input),
                     data.output.elem.file.dir
                 );
             });
         });
     });
 
-    describe('#getElementModifierDir', function () {
+    describe('#getElemtModDir', function () {
         it('should format element modifier dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getElementModifierDir(data.input),
+                    formatFileDir.getElemModDir(data.input),
                     data.output.elem.mod.file.dir
                 );
             });

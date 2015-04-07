@@ -22,55 +22,55 @@ describe('newbem', function () {
         });
     });
 
-    describe('#getElementName', function () {
+    describe('#getElemName', function () {
         it('should return element name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    newbem.getElementName(data.data),
+                    newbem.getElemName(data.data),
                     data.elem.name
                 );
             });
         });
     });
 
-    describe('#getBlockModifierName', function () {
+    describe('#getBlockModName', function () {
         it('should return block modifier name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    newbem.getBlockModifierName(data.data),
+                    newbem.getBlockModName(data.data),
                     data.block.mod.name
                 );
             });
         });
     });
 
-    describe('#getBlockModifierValue', function () {
+    describe('#getBlockModValue', function () {
         it('should return block modifier value', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    newbem.getBlockModifierValue(data.data),
+                    newbem.getBlockModValue(data.data),
                     data.block.mod.value
                 );
             });
         });
     });
 
-    describe('#getElementModifierName', function () {
+    describe('#getElemModName', function () {
         it('should return element modifier name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    newbem.getElementModifierName(data.data),
+                    newbem.getElemModName(data.data),
                     data.elem.mod.name
                 );
             });
         });
     });
 
-    describe('#getElementModifierValue', function () {
+    describe('#getElemModValue', function () {
         it('should return element modifier value', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    newbem.getElementModifierValue(data.data),
+                    newbem.getElemModValue(data.data),
                     data.elem.mod.value
                 );
             });
