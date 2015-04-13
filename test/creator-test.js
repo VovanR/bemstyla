@@ -35,11 +35,47 @@ describe('creator', function () {
         });
     });
 
+    describe('#touch', function () {
+        it('should add file', function () {
+                var fileData = {
+                    dir: '/tmp/newbem/block',
+                    name: 'block',
+                    ext: 'styl',
+                };
+                creator.touch(fileData);
+
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                assert.equal(filePath, '/tmp/newbem/block/block.styl');
+
+                assert.isTrue(fs.statSync(filePath).isFile());
+
+
+            _.forEach(testData, function (data) {
+                var file = data.output.block.file;
+
+                if (!file.dir || !file.name) {
+                    return;
+                }
+
+                var fileData = {
+                    dir: path.join('/tmp/newbem/', file.dir),
+                    name: file.name,
+                    ext: file.ext,
+                };
+                creator.touch(fileData);
+
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+
+                assert.isTrue(fs.statSync(filePath).isFile());
+            });
+        });
+    });
+
     /*
     + make dir
         + not if exists
-    touch file
-        not if exists
+    + touch file
+        + not if exists
     write to file
         not if exists
      */
