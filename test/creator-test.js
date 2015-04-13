@@ -4,8 +4,8 @@ var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
-var exists = fs.exists || path.exists;
-var mkdirp = require('mkdirp');
+var exists = fs.existsSync || path.existsSync;
+var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
@@ -13,6 +13,36 @@ describe('creator', function () {
     it('should be `Object`', function () {
         assert.isObject(creator);
     });
+
+    describe('#mkdir', function () {
+        if (!exists('/tmp/newbem')) {
+            fs.mkdirSync('/tmp/newbem');
+        }
+
+        it('should add dir', function () {
+            _.forEach(testData, function (data) {
+                var _dir = data.output.block.file.dir;
+                var dir = '/tmp/newbem/' + _dir;
+
+                if (_dir !== '') {
+                    rmdir(dir);
+                    assert.notOk(exists(dir), 'rm ' + _dir);
+                }
+
+                creator.mkdir(dir);
+                assert.ok(exists(dir), 'mk ' + _dir);
+            });
+        });
+    });
+
+    /*
+    + make dir
+        + not if exists
+    touch file
+        not if exists
+    write to file
+        not if exists
+     */
 
     // describe('#touchFiles', function () {
     //     it('should create `styl` files', function (done) {
