@@ -4,7 +4,10 @@ var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 
 gulp.task('test', function () {
-    return gulp.src('./test/**/*.js', { read: false })
+    return gulp.src([
+            './test/parser-test.js',
+            './test/format-file-test.js',
+        ], { read: false })
         .pipe(mocha({
             reporter: 'nyan',
         }));

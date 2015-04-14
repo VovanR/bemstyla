@@ -14,7 +14,7 @@ if (program.args.length < 1) {
 
 var creator = require('../lib/creator');
 
-creator(program.args[0])
-    .catch(function (err) {
-        console.error(err.stack || err);
-    });
+// creator(program.args[0])
+//     .catch(function (err) {
+//         console.error(err.stack || err);
+//     });
