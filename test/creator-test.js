@@ -9,7 +9,7 @@ var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
-var TEMP_DIR = '/tmp/newbem'
+var TEMP_DIR = '/tmp/bemstyla'
 var clearTemp = function () {
     if (exists(TEMP_DIR)) {
         rmdir(TEMP_DIR);

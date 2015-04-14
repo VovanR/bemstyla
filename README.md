@@ -2,7 +2,7 @@
 
 One command
 ```
-$ newbem block__elem_mod-name_mod-val
+$ bemstyla block__elem_mod-name_mod-val
 ```
 
 Makes dirs and styl files
@@ -27,15 +27,15 @@ $ cat blocks/block/block__elem.styl
 ## Install
 
 ```
-npm i -g newbem
+npm i -g bemstyla
 ```
 
 ## Usage
 
 ```
-newbem block__elem
-newbem foo_size_small
-newbem bar__baz_qux
+bemstyla block__elem
+bemstyla foo_size_small
+bemstyla bar__baz_qux
 ...
 ```
 

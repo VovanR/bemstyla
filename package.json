@@ -1,6 +1,6 @@
 {
-  "name": "newbem",
-  "description": "Creates block__element_modifier_modifier-value styl files",
+  "name": "bemstyla",
+  "description": "Creates block__elem_mod-name_mod-val styl files",
   "version": "0.1.0",
   "author": "Vladimir Rodkin <mail@vovanr.com>",
   "keywords": [
@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VovanR/newbem"
+    "url": "https://github.com/VovanR/bemstyla"
   },
   "bin": {
-    "newbem": "./bin/newbem.js"
+    "bemstyla": "./bin/bemstyla.js"
   },
   "engines": {
     "node": ""
@@ -30,9 +30,9 @@
     "rimraf": "^2.3.2"
   },
   "bugs": {
-    "url": "https://github.com/VovanR/newbem/issues"
+    "url": "https://github.com/VovanR/bemstyla/issues"
   },
-  "homepage": "https://github.com/VovanR/newbem",
+  "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
     "commander": "^2.7.1",
