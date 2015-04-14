@@ -5,7 +5,8 @@
   "author": "Vladimir Rodkin <mail@vovanr.com>",
   "keywords": [
     "bem",
-    "parser"
+    "cli",
+    "stylus"
   ],
   "repository": {
     "type": "git",
