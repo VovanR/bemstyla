@@ -9,7 +9,7 @@ var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
-var TEMP_DIR = '/media/vovanr/DDE4-DF16/tmp'
+var TEMP_DIR = '/tmp/newbem'
 var clearTemp = function () {
     if (exists(TEMP_DIR)) {
         rmdir(TEMP_DIR);
@@ -106,6 +106,8 @@ describe('creator', function () {
             assert.equal(filePath, path.join(TEMP_DIR, 'block/block.styl'));
 
             assert.isTrue(fs.statSync(filePath).isFile());
+            var text = '.block\n    {}\n';
+            assert.equal(text, fs.readFileSync(filePath));
 
 
             _.forEach(testData, function (data) {
@@ -123,6 +125,8 @@ describe('creator', function () {
 
                 var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
                 assert.isTrue(fs.statSync(filePath).isFile());
+                var text = '.' + fileData.name + '\n    {}\n';
+                assert.equal(text, fs.readFileSync(filePath));
             });
 
             done();
@@ -144,6 +148,8 @@ describe('creator', function () {
 
                 var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
                 assert.isTrue(fs.statSync(filePath).isFile());
+                var text = '.' + fileData.name + '\n    {}\n';
+                assert.equal(text, fs.readFileSync(filePath));
             });
 
             done();
@@ -165,6 +171,8 @@ describe('creator', function () {
 
                 var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
                 assert.isTrue(fs.statSync(filePath).isFile());
+                var text = '.' + fileData.name + '\n    {}\n';
+                assert.equal(text, fs.readFileSync(filePath));
             });
 
             done();
@@ -186,6 +194,8 @@ describe('creator', function () {
 
                 var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
                 assert.isTrue(fs.statSync(filePath).isFile());
+                var text = '.' + fileData.name + '\n    {}\n';
+                assert.equal(text, fs.readFileSync(filePath));
             });
 
             done();
