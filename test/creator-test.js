@@ -9,65 +9,186 @@ var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
+var TEMP_DIR = '/media/vovanr/DDE4-DF16/tmp'
+var clearTemp = function () {
+    if (exists(TEMP_DIR)) {
+        rmdir(TEMP_DIR);
+    }
+
+    fs.mkdirSync(TEMP_DIR);
+};
+
 describe('creator', function () {
     it('should be `Object`', function () {
         assert.isObject(creator);
     });
 
     describe('#mkdir', function () {
-        if (!exists('/tmp/newbem')) {
-            fs.mkdirSync('/tmp/newbem');
-        }
-
-        it('should add dir', function () {
+        it('should add block dir', function (done) {
             _.forEach(testData, function (data) {
+                clearTemp();
                 var _dir = data.output.block.file.dir;
-                var dir = '/tmp/newbem/' + _dir;
+                var dir = path.join(TEMP_DIR, _dir);
 
                 if (_dir !== '') {
-                    rmdir(dir);
                     assert.notOk(exists(dir), 'rm ' + _dir);
                 }
 
                 creator.mkdir(dir);
                 assert.ok(exists(dir), 'mk ' + _dir);
             });
+
+            done();
+        });
+
+        it('should add block mod dir', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var _dir = data.output.block.mod.file.dir;
+                var dir = path.join(TEMP_DIR, _dir);
+
+                if (_dir !== '') {
+                    assert.notOk(exists(dir), 'rm ' + _dir);
+                }
+
+                creator.mkdir(dir);
+                assert.ok(exists(dir), 'mk ' + _dir);
+            });
+
+            done();
+        });
+
+        it('should add elem dir', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var _dir = data.output.elem.file.dir;
+                var dir = path.join(TEMP_DIR, _dir);
+
+                if (_dir !== '') {
+                    assert.notOk(exists(dir), 'rm ' + _dir);
+                }
+
+                creator.mkdir(dir);
+                assert.ok(exists(dir), 'mk ' + _dir);
+            });
+
+            done();
+        });
+
+        it('should add elem mod dir', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var _dir = data.output.elem.mod.file.dir;
+                var dir = path.join(TEMP_DIR, _dir);
+
+                if (_dir !== '') {
+                    assert.notOk(exists(dir), 'rm ' + _dir);
+                }
+
+                creator.mkdir(dir);
+                assert.ok(exists(dir), 'mk ' + _dir);
+            });
+
+            done();
         });
     });
 
     describe('#touch', function () {
-        it('should add file', function () {
-                var fileData = {
-                    dir: '/tmp/newbem/block',
-                    name: 'block',
-                    ext: 'styl',
-                };
-                creator.touch(fileData);
+        it('should add block file', function (done) {
+            var fileData = {
+                dir: path.join(TEMP_DIR, 'block'),
+                name: 'block',
+                ext: 'styl',
+            };
+            creator.touch(fileData);
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
-                assert.equal(filePath, '/tmp/newbem/block/block.styl');
+            var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+            assert.equal(filePath, path.join(TEMP_DIR, 'block/block.styl'));
 
-                assert.isTrue(fs.statSync(filePath).isFile());
+            assert.isTrue(fs.statSync(filePath).isFile());
 
 
             _.forEach(testData, function (data) {
-                var file = data.output.block.file;
+                clearTemp();
+                var fileData = _.clone(data.output.block.file);
 
-                if (!file.dir || !file.name) {
+                if (!fileData.dir || !fileData.name) {
                     return;
                 }
 
-                var fileData = {
-                    dir: path.join('/tmp/newbem/', file.dir),
-                    name: file.name,
-                    ext: file.ext,
-                };
+                _.assign(fileData, {
+                    dir: path.join(TEMP_DIR, fileData.dir),
+                });
                 creator.touch(fileData);
 
                 var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
-
                 assert.isTrue(fs.statSync(filePath).isFile());
             });
+
+            done();
+        });
+
+        it('should add block mod file', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var fileData = _.clone(data.output.block.mod.file);
+
+                if (!fileData.dir || !fileData.name) {
+                    return;
+                }
+
+                _.assign(fileData, {
+                    dir: path.join(TEMP_DIR, fileData.dir),
+                });
+                creator.touch(fileData);
+
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                assert.isTrue(fs.statSync(filePath).isFile());
+            });
+
+            done();
+        });
+
+        it('should add elem file', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var fileData = _.clone(data.output.elem.file);
+
+                if (!fileData.dir || !fileData.name) {
+                    return;
+                }
+
+                _.assign(fileData, {
+                    dir: path.join(TEMP_DIR, fileData.dir),
+                });
+                creator.touch(fileData);
+
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                assert.isTrue(fs.statSync(filePath).isFile());
+            });
+
+            done();
+        });
+
+        it('should add elem mod file', function (done) {
+            _.forEach(testData, function (data) {
+                clearTemp();
+                var fileData = _.clone(data.output.elem.mod.file);
+
+                if (!fileData.dir || !fileData.name) {
+                    return;
+                }
+
+                _.assign(fileData, {
+                    dir: path.join(TEMP_DIR, fileData.dir),
+                });
+                creator.touch(fileData);
+
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                assert.isTrue(fs.statSync(filePath).isFile());
+            });
+
+            done();
         });
     });
 
@@ -79,24 +200,4 @@ describe('creator', function () {
     write to file
         not if exists
      */
-
-    // describe('#touchFiles', function () {
-    //     it('should create `styl` files', function (done) {
-            // mkdirp.sync('/tmp/' + creator.getPath('block__elem_mod-name_mod-val'));
-            // exists('/tmp/block/__elem/_mod-name', function (ex) {
-            //     assert.ok(ex, 'Dir created');
-            // });
-            // var paths = creator.getFilePaths('block__elem_mod-name_mod-val');
-            // var stream = fs.createWriteStream('/tmp/' + paths.block.file + '.styl');
-            // stream.once('open', function(fd) {
-            //     stream.write('.' + paths.block.name + '\n    {}\n');
-            //     stream.end();
-            //     done();
-            // });
-            // fs.accessSync('temp', fs.W_OK, function (err) {
-            //     assert.isFalse(err);
-            //     done();
-            // });
-    //     });
-    // });
 });
