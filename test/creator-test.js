@@ -200,14 +200,9 @@ describe('creator', function () {
 
             done();
         });
-    });
 
-    /*
-    + make dir
-        + not if exists
-    + touch file
-        + not if exists
-    write to file
-        not if exists
-     */
+        it('should not rewrite exists files', function () {
+            assert.isTrue(false);
+        });
+    });
 });
