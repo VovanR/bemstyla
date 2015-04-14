@@ -8,7 +8,7 @@ program
     .version(pkg.version)
     .parse(process.argv);
 
-if (program.args.length !== 2) {
+if (program.args.length < 1) {
     program.help();
 }
 
