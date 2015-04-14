@@ -24,6 +24,21 @@ $ cat blocks/block/block__elem.styl
     {}
 ```
 
+## Install
+
+```
+npm i -g newbem
+```
+
+## Usage
+
+```
+newbem block__elem
+newbem foo_size_small
+newbem bar__baz_qux
+...
+```
+
 ## Solutions with the same functionality
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
