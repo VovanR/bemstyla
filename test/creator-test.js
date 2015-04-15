@@ -5,19 +5,18 @@ var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
 var exists = fs.existsSync || path.existsSync;
-var mkdirp = require('mkdirp');
+var mkdirp = require('mkdirp').sync;
 var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
-// var TEMP_DIR = '/tmp/bemstyla';
-var TEMP_DIR = '/media/vovanr/DDE4-DF16/tmp/bemstyla';
+var TEMP_DIR = '/tmp/bemstyla';
 var clearTemp = function () {
     if (exists(TEMP_DIR)) {
         rmdir(TEMP_DIR);
     }
 
-    mkdirp.sync(TEMP_DIR);
+    mkdirp(TEMP_DIR);
 };
 
 describe('creator', function () {
@@ -120,7 +119,7 @@ describe('creator', function () {
                     return;
                 }
 
-                _.assign(fileData, {
+                _.merge(fileData, {
                     dir: path.join(TEMP_DIR, fileData.dir),
                 });
                 creator.touch(fileData);
@@ -143,7 +142,7 @@ describe('creator', function () {
                     return;
                 }
 
-                _.assign(fileData, {
+                _.merge(fileData, {
                     dir: path.join(TEMP_DIR, fileData.dir),
                 });
                 creator.touch(fileData);
@@ -166,7 +165,7 @@ describe('creator', function () {
                     return;
                 }
 
-                _.assign(fileData, {
+                _.merge(fileData, {
                     dir: path.join(TEMP_DIR, fileData.dir),
                 });
                 creator.touch(fileData);
@@ -189,7 +188,7 @@ describe('creator', function () {
                     return;
                 }
 
-                _.assign(fileData, {
+                _.merge(fileData, {
                     dir: path.join(TEMP_DIR, fileData.dir),
                 });
                 creator.touch(fileData);
@@ -204,7 +203,23 @@ describe('creator', function () {
         });
 
         it('should not rewrite exists files', function () {
-            assert.isTrue(false);
+            clearTemp();
+            var fileData = {
+                dir: 'block',
+                name: 'block',
+                ext: 'styl'
+            };
+            _.merge(fileData, {
+                dir: path.join(TEMP_DIR, fileData.dir),
+            });
+
+            var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+            var testText = 'Foo';
+            mkdirp(fileData.dir);
+            fs.writeFileSync(filePath, testText);
+            assert.equal(fs.readFileSync(filePath), testText);
+            creator.touch(fileData);
+            assert.equal(fs.readFileSync(filePath), testText);
         });
     });
 });
