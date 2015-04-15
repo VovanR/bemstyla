@@ -23,18 +23,18 @@ describe('formatFileName', function () {
     });
 
     describe('#getBlockModName', function () {
-        it('should format block modifier file name from input string', function () {
+        it('should format block mod file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileName.getBlockModName(data.input),
-                    data.output.block.mod.file.name
+                    data.output.bmod.file.name
                 );
             });
         });
     });
 
     describe('#getElemName', function () {
-        it('should format element file name from input string', function () {
+        it('should format elem file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileName.getElemName(data.input),
@@ -45,11 +45,11 @@ describe('formatFileName', function () {
     });
 
     describe('#getElemModName', function () {
-        it('should format element modifier file name from input string', function () {
+        it('should format elem mod file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileName.getElemModName(data.input),
-                    data.output.elem.mod.file.name
+                    data.output.emod.file.name
                 );
             });
         });

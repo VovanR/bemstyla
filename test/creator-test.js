@@ -5,6 +5,7 @@ var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
 var exists = fs.existsSync || path.existsSync;
+var mkdirp = require('mkdirp');
 var rmdir = require('rimraf').sync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
@@ -16,11 +17,10 @@ var clearTemp = function () {
         rmdir(TEMP_DIR);
     }
 
-    fs.mkdirSync(TEMP_DIR);
+    mkdirp.sync(TEMP_DIR);
 };
 
 describe('creator', function () {
-    return;
     it('should be `Object`', function () {
         assert.isObject(creator);
     });
@@ -46,7 +46,7 @@ describe('creator', function () {
         it('should add block mod dir', function (done) {
             _.forEach(testData, function (data) {
                 clearTemp();
-                var _dir = data.output.block.mod.file.dir;
+                var _dir = data.output.bmod.file.dir;
                 var dir = path.join(TEMP_DIR, _dir);
 
                 if (_dir !== '') {
@@ -80,7 +80,7 @@ describe('creator', function () {
         it('should add elem mod dir', function (done) {
             _.forEach(testData, function (data) {
                 clearTemp();
-                var _dir = data.output.elem.mod.file.dir;
+                var _dir = data.output.emod.file.dir;
                 var dir = path.join(TEMP_DIR, _dir);
 
                 if (_dir !== '') {
@@ -137,7 +137,7 @@ describe('creator', function () {
         it('should add block mod file', function (done) {
             _.forEach(testData, function (data) {
                 clearTemp();
-                var fileData = _.clone(data.output.block.mod.file);
+                var fileData = _.clone(data.output.bmod.file);
 
                 if (!fileData.dir || !fileData.name) {
                     return;
@@ -183,7 +183,7 @@ describe('creator', function () {
         it('should add elem mod file', function (done) {
             _.forEach(testData, function (data) {
                 clearTemp();
-                var fileData = _.clone(data.output.elem.mod.file);
+                var fileData = _.clone(data.output.emod.file);
 
                 if (!fileData.dir || !fileData.name) {
                     return;
