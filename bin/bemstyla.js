@@ -2,6 +2,7 @@
 'use strict';
 
 var program = require('commander');
+var _ = require('lodash');
 var pkg = require('../package.json');
 
 program
@@ -13,4 +14,7 @@ if (program.args.length < 1) {
 }
 
 var index = require('../lib/index');
-index(program.args[0]);
+
+_.forEach(program.args, function (arg) {
+    index(arg);
+});
