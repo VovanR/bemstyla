@@ -23,18 +23,18 @@ describe('formatFileDir', function () {
     });
 
     describe('#getBlockModDir', function () {
-        it('should format block modifier dir name from input string', function () {
+        it('should format block mod dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileDir.getBlockModDir(data.input),
-                    data.output.block.mod.file.dir
+                    data.output.bmod.file.dir
                 );
             });
         });
     });
 
     describe('#getElemDir', function () {
-        it('should format element dir name from input string', function () {
+        it('should format elem dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileDir.getElemDir(data.input),
@@ -45,11 +45,43 @@ describe('formatFileDir', function () {
     });
 
     describe('#getElemtModDir', function () {
-        it('should format element modifier dir name from input string', function () {
+        it('should format elem mod dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
                     formatFileDir.getElemModDir(data.input),
-                    data.output.elem.mod.file.dir
+                    data.output.emod.file.dir
+                );
+            });
+        });
+    });
+
+    describe('#format', function () {
+        it('should format file dirs object', function () {
+            _.forEach(testData, function (data) {
+                assert.deepEqual(
+                    formatFileDir.format(data.input),
+                    {
+                        block: {
+                            file: {
+                                dir: data.output.block.file.dir
+                            }
+                        },
+                        bmod: {
+                            file: {
+                                dir: data.output.bmod.file.dir
+                            }
+                        },
+                        elem: {
+                            file: {
+                                dir: data.output.elem.file.dir
+                            }
+                        },
+                        emod: {
+                            file: {
+                                dir: data.output.emod.file.dir
+                            }
+                        },
+                    }
                 );
             });
         });

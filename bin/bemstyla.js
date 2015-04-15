@@ -12,9 +12,5 @@ if (program.args.length < 1) {
     program.help();
 }
 
-var creator = require('../lib/creator');
-
-creator(program.args[0])
-    .catch(function (err) {
-        console.error(err.stack || err);
-    });
+var index = require('../lib/index');
+index(program.args[0])

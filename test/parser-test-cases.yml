@@ -1,167 +1,167 @@
 - data: ''
   block:
     name: ''
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: ''
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: ''
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block_mod
   block:
     name: block
-    mod:
-      name: mod
-      value: ''
+  bmod:
+    name: mod
+    value: ''
   elem:
     name: ''
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block_mod-name_mod-val
   block:
     name: block
-    mod:
-      name: mod-name
-      value: mod-val
+  bmod:
+    name: mod-name
+    value: mod-val
   elem:
     name: ''
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block__elem
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block__elem_mod
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod
-      value: ''
+  emod:
+    name: mod
+    value: ''
 
 - data: block__elem_mod-name_mod-val
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod-name
-      value: mod-val
+  emod:
+    name: mod-name
+    value: mod-val
 
 - data: foo__bar_baz
   block:
     name: foo
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: bar
-    mod:
-      name: baz
-      value: ''
+  emod:
+    name: baz
+    value: ''
 
 - data: block_mod__elem
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block_mod__elem_mod
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod
-      value: ''
+  emod:
+    name: mod
+    value: ''
 
 - data: block_mod__elem_mod-name_mod-val
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod-name
-      value: mod-val
+  emod:
+    name: mod-name
+    value: mod-val
 
 - data: block_mod-name_mod-val__elem
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: ''
-      value: ''
+  emod:
+    name: ''
+    value: ''
 
 - data: block_mod-name_mod-val__elem_mod
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod
-      value: ''
+  emod:
+    name: mod
+    value: ''
 
 - data: block_mod-name_mod-val__elem_mod-name_mod-val
   block:
     name: block
-    mod:
-      name: ''
-      value: ''
+  bmod:
+    name: ''
+    value: ''
   elem:
     name: elem
-    mod:
-      name: mod-name
-      value: mod-val
+  emod:
+    name: mod-name
+    value: mod-val

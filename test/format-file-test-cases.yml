@@ -6,26 +6,26 @@
         dir: ''
         name: ''
         ext: styl
-      mod:
-        file:
-          dir: ''
-          name: ''
-          ext: styl
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        value: ''
+        ext: styl
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
-      mod:
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
 
 - input: block
   output:
@@ -35,26 +35,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
-      mod:
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
 
 - input: block_mod
   output:
@@ -64,26 +64,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
-        name: mod
-        file:
-          dir: block/_mod
-          name: block_mod
-          ext: styl
-        value: ''
+    bmod:
+      name: mod
+      value: ''
+      file:
+        dir: block/_mod
+        name: block_mod
+        ext: styl
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
-      mod:
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
 
 - input: block_mod-name_mod-val
   output:
@@ -93,26 +93,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
-        name: mod-name
-        file:
-          dir: block/_mod-name
-          name: block_mod-name_mod-val
-          ext: styl
-        value: mod-val
+    bmod:
+      name: mod-name
+      value: mod-val
+      file:
+        dir: block/_mod-name
+        name: block_mod-name_mod-val
+        ext: styl
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
-      mod:
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
 
 - input: block__elem
   output:
@@ -122,26 +122,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
-      mod:
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
 
 - input: block__elem_mod
   output:
@@ -151,26 +151,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
-      mod:
-        name: mod
-        file:
-          dir: block/__elem/_mod
-          name: block__elem_mod
-          ext: styl
-        value: ''
+    emod:
+      name: mod
+      value: ''
+      file:
+        dir: block/__elem/_mod
+        name: block__elem_mod
+        ext: styl
 
 - input: block__elem_mod-name_mod-val
   output:
@@ -180,26 +180,26 @@
         dir: block
         name: block
         ext: styl
-      mod:
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
-      mod:
-        name: mod-name
-        file:
-          dir: block/__elem/_mod-name
-          name: block__elem_mod-name_mod-val
-          ext: styl
-        value: mod-val
+    emod:
+      name: mod-name
+      value: mod-val
+      file:
+        dir: block/__elem/_mod-name
+        name: block__elem_mod-name_mod-val
+        ext: styl
 
 - input: foo__bar_baz
   output:
@@ -209,23 +209,23 @@
         dir: foo
         name: foo
         ext: styl
-      mod:
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
         name: ''
-        file:
-          dir: ''
-          name: ''
-          ext: styl
-        value: ''
+        ext: styl
     elem:
       name: bar
       file:
         dir: foo/__bar
         name: foo__bar
         ext: styl
-      mod:
-        name: baz
-        file:
-          dir: foo/__bar/_baz
-          name: foo__bar_baz
-          ext: styl
-        value: ''
+    emod:
+      name: baz
+      value: ''
+      file:
+        dir: foo/__bar/_baz
+        name: foo__bar_baz
+        ext: styl
