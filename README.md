@@ -36,6 +36,7 @@ npm i -g bemstyla
 bemstyla block__elem
 bemstyla foo_size_small
 bemstyla bar__baz_qux
+bemstyla block__foo block__bar_baz foo__bar foo__qux
 ...
 ```
 
