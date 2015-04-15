@@ -11,44 +11,44 @@ describe('formatFileDir', function () {
         assert.isObject(formatFileDir);
     });
 
-    describe('#getBlockDir', function () {
+    describe('_getBlockDir', function () {
         it('should format block dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getBlockDir(data.input),
+                    formatFileDir._getBlockDir(data.input),
                     data.output.block.file.dir
                 );
             });
         });
     });
 
-    describe('#getBlockModDir', function () {
+    describe('_getBlockModDir', function () {
         it('should format block mod dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getBlockModDir(data.input),
+                    formatFileDir._getBlockModDir(data.input),
                     data.output.bmod.file.dir
                 );
             });
         });
     });
 
-    describe('#getElemDir', function () {
+    describe('_getElemDir', function () {
         it('should format elem dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getElemDir(data.input),
+                    formatFileDir._getElemDir(data.input),
                     data.output.elem.file.dir
                 );
             });
         });
     });
 
-    describe('#getElemtModDir', function () {
+    describe('_getElemtModDir', function () {
         it('should format elem mod dir name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileDir.getElemModDir(data.input),
+                    formatFileDir._getElemModDir(data.input),
                     data.output.emod.file.dir
                 );
             });

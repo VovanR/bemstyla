@@ -13,4 +13,4 @@ if (program.args.length < 1) {
 }
 
 var index = require('../lib/index');
-index(program.args[0])
+index(program.args[0]);

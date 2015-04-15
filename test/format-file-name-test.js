@@ -11,44 +11,44 @@ describe('formatFileName', function () {
         assert.isObject(formatFileName);
     });
 
-    describe('#getBlockName', function () {
+    describe('_getBlockName', function () {
         it('should format block file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getBlockName(data.input),
+                    formatFileName._getBlockName(data.input),
                     data.output.block.file.name
                 );
             });
         });
     });
 
-    describe('#getBlockModName', function () {
+    describe('_getBlockModName', function () {
         it('should format block mod file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getBlockModName(data.input),
+                    formatFileName._getBlockModName(data.input),
                     data.output.bmod.file.name
                 );
             });
         });
     });
 
-    describe('#getElemName', function () {
+    describe('_getElemName', function () {
         it('should format elem file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getElemName(data.input),
+                    formatFileName._getElemName(data.input),
                     data.output.elem.file.name
                 );
             });
         });
     });
 
-    describe('#getElemModName', function () {
+    describe('_getElemModName', function () {
         it('should format elem mod file name from input string', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    formatFileName.getElemModName(data.input),
+                    formatFileName._getElemModName(data.input),
                     data.output.emod.file.name
                 );
             });
@@ -80,7 +80,7 @@ describe('formatFileName', function () {
                             file: {
                                 name: data.output.emod.file.name
                             }
-                        },
+                        }
                     }
                 );
             });

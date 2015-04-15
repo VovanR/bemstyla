@@ -11,6 +11,8 @@ var rmdir = require('rimraf').sync;
 var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
+/**
+ */
 var clearTemp = function () {
     if (exists(TEMP_DIR)) {
         rmdir(TEMP_DIR);
@@ -110,7 +112,6 @@ describe('creator', function () {
             var text = '.block\n    {}\n';
             assert.equal(text, fs.readFileSync(filePath));
 
-
             _.forEach(testData, function (data) {
                 clearTemp();
                 var fileData = _.clone(data.output.block.file);
@@ -124,7 +125,7 @@ describe('creator', function () {
                 });
                 creator.touch(fileData);
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
                 assert.isTrue(fs.statSync(filePath).isFile());
                 var text = '.' + fileData.name + '\n    {}\n';
                 assert.equal(text, fs.readFileSync(filePath));
@@ -147,7 +148,7 @@ describe('creator', function () {
                 });
                 creator.touch(fileData);
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
                 assert.isTrue(fs.statSync(filePath).isFile());
                 var text = '.' + fileData.name + '\n    {}\n';
                 assert.equal(text, fs.readFileSync(filePath));
@@ -170,7 +171,7 @@ describe('creator', function () {
                 });
                 creator.touch(fileData);
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
                 assert.isTrue(fs.statSync(filePath).isFile());
                 var text = '.' + fileData.name + '\n    {}\n';
                 assert.equal(text, fs.readFileSync(filePath));
@@ -193,7 +194,7 @@ describe('creator', function () {
                 });
                 creator.touch(fileData);
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext)
+                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
                 assert.isTrue(fs.statSync(filePath).isFile());
                 var text = '.' + fileData.name + '\n    {}\n';
                 assert.equal(text, fs.readFileSync(filePath));
