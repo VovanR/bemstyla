@@ -54,4 +54,36 @@ describe('formatFileName', function () {
             });
         });
     });
+
+    describe('#format', function () {
+        it('should format file names object', function () {
+            _.forEach(testData, function (data) {
+                assert.deepEqual(
+                    formatFileName.format(data.input),
+                    {
+                        block: {
+                            file: {
+                                name: data.output.block.file.name
+                            }
+                        },
+                        bmod: {
+                            file: {
+                                name: data.output.bmod.file.name
+                            }
+                        },
+                        elem: {
+                            file: {
+                                name: data.output.elem.file.name
+                            }
+                        },
+                        emod: {
+                            file: {
+                                name: data.output.emod.file.name
+                            }
+                        },
+                    }
+                );
+            });
+        });
+    });
 });

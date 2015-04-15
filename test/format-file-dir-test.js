@@ -54,4 +54,36 @@ describe('formatFileDir', function () {
             });
         });
     });
+
+    describe('#format', function () {
+        it('should format file dirs object', function () {
+            _.forEach(testData, function (data) {
+                assert.deepEqual(
+                    formatFileDir.format(data.input),
+                    {
+                        block: {
+                            file: {
+                                dir: data.output.block.file.dir
+                            }
+                        },
+                        bmod: {
+                            file: {
+                                dir: data.output.bmod.file.dir
+                            }
+                        },
+                        elem: {
+                            file: {
+                                dir: data.output.elem.file.dir
+                            }
+                        },
+                        emod: {
+                            file: {
+                                dir: data.output.emod.file.dir
+                            }
+                        },
+                    }
+                );
+            });
+        });
+    });
 });

@@ -8,39 +8,51 @@ describe('parser', function () {
     });
 
     describe('#format', function () {
-        it('should return mixed JSON object', function () {
-            var res = {
-                block: {
-                    file: {
-                        name: '',
-                        dir: '',
-                        ext: 'styl'
-                    }
-                },
-                bmod: {
-                    file: {
-                        name: '',
-                        dir: '',
-                        ext: 'styl'
-                    }
-                },
-                elem: {
-                    file: {
-                        name: '',
-                        dir: '',
-                        ext: 'styl'
-                    }
-                },
-                emod: {
-                    file: {
-                        name: '',
-                        dir: '',
-                        ext: 'styl'
-                    }
+        var testResult = {
+            block: {
+                file: {
+                    name: '',
+                    dir: '',
+                    ext: 'styl'
                 }
-            };
+            },
+            bmod: {
+                file: {
+                    name: '',
+                    dir: '',
+                    ext: 'styl'
+                }
+            },
+            elem: {
+                file: {
+                    name: '',
+                    dir: '',
+                    ext: 'styl'
+                }
+            },
+            emod: {
+                file: {
+                    name: '',
+                    dir: '',
+                    ext: 'styl'
+                }
+            }
+        };
+
+        it('should return mixed JSON object', function () {
+            var res = _.clone(testResult);
 
             assert.deepEqual(formatFile.format(), res);
+        });
+
+        it('should not assign objects', function () {
+            var res = _.clone(testResult);
+
+            var formatted = formatFile.format();
+            assert.deepEqual(formatted, res);
+            formatted.block.file.dir = 'foo';
+            res.block.file.dir = 'foo';
+            assert.deepEqual(formatted, res);
         });
     });
 });
