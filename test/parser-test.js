@@ -11,66 +11,66 @@ describe('parser', function () {
         assert.isObject(parser);
     });
 
-    describe('#getBlockName', function () {
+    describe('_getBlockName', function () {
         it('should return block name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getBlockName(data.data),
+                    parser._getBlockName(data.data),
                     data.block.name
                 );
             });
         });
     });
 
-    describe('#getBlockModName', function () {
+    describe('_getBlockModName', function () {
         it('should return block mod name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getBlockModName(data.data),
+                    parser._getBlockModName(data.data),
                     data.bmod.name
                 );
             });
         });
     });
 
-    describe('#getBlockModValue', function () {
+    describe('_getBlockModValue', function () {
         it('should return block mod value', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getBlockModValue(data.data),
+                    parser._getBlockModValue(data.data),
                     data.bmod.value
                 );
             });
         });
     });
 
-    describe('#getElemName', function () {
+    describe('_getElemName', function () {
         it('should return elem name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getElemName(data.data),
+                    parser._getElemName(data.data),
                     data.elem.name
                 );
             });
         });
     });
 
-    describe('#getElemModName', function () {
+    describe('_getElemModName', function () {
         it('should return elem mod name', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getElemModName(data.data),
+                    parser._getElemModName(data.data),
                     data.emod.name
                 );
             });
         });
     });
 
-    describe('#getElemModValue', function () {
+    describe('_getElemModValue', function () {
         it('should return elem mod value', function () {
             _.forEach(testData, function (data) {
                 assert.equal(
-                    parser.getElemModValue(data.data),
+                    parser._getElemModValue(data.data),
                     data.emod.value
                 );
             });

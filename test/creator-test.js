@@ -25,7 +25,7 @@ describe('creator', function () {
         assert.isObject(creator);
     });
 
-    describe('#mkdir', function () {
+    describe('_mkdir', function () {
         it('should add block dir', function (done) {
             _.forEach(testData, function (data) {
                 clearTemp();
@@ -36,7 +36,7 @@ describe('creator', function () {
                     assert.notOk(exists(dir), 'rm ' + _dir);
                 }
 
-                creator.mkdir(dir);
+                creator._mkdir(dir);
                 assert.ok(exists(dir), 'mk ' + _dir);
             });
 
@@ -53,7 +53,7 @@ describe('creator', function () {
                     assert.notOk(exists(dir), 'rm ' + _dir);
                 }
 
-                creator.mkdir(dir);
+                creator._mkdir(dir);
                 assert.ok(exists(dir), 'mk ' + _dir);
             });
 
@@ -70,7 +70,7 @@ describe('creator', function () {
                     assert.notOk(exists(dir), 'rm ' + _dir);
                 }
 
-                creator.mkdir(dir);
+                creator._mkdir(dir);
                 assert.ok(exists(dir), 'mk ' + _dir);
             });
 
@@ -87,7 +87,7 @@ describe('creator', function () {
                     assert.notOk(exists(dir), 'rm ' + _dir);
                 }
 
-                creator.mkdir(dir);
+                creator._mkdir(dir);
                 assert.ok(exists(dir), 'mk ' + _dir);
             });
 
