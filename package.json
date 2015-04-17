@@ -1,7 +1,7 @@
 {
   "name": "bemstyla",
   "description": "Creates block__elem_mod-name_mod-val styl files",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "Vladimir Rodkin <mail@vovanr.com>",
   "keywords": [
     "bem",
