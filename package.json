@@ -19,20 +19,30 @@
     "node": ""
   },
   "scripts": {
-    "test": "./node_modules/.bin/gulp test"
+    "coverage": "istanbul cover _mocha --",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "postpublish": "git push --follow-tags",
+    "precoveralls": "npm run coverage",
+    "prepush": "npm test; npm run lint",
+    "tdd": "mocha --watch",
+    "test": "mocha",
+    "lint": "npm run jslint; npm run jscs",
+    "jslint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./lib/*.js ./bin/*.js ./test/*.js",
+    "jscs": "jscs ./lib/*.js ./bin/*.js ./test/*.js"
   },
   "devDependencies": {
     "chai": "^2.1.2",
-    "gulp": "^3.8.11",
-    "gulp-jscs": "^1.5.1",
-    "gulp-jshint": "^1.10.0",
-    "gulp-mocha": "^2.0.0",
+    "coveralls": "^2.11.2",
+    "husky": "^0.7.0",
+    "istanbul": "^0.3.11",
     "js-yaml": "^3.2.7",
     "jscs": "^1.12.0",
     "jscs-jsdoc": "^0.4.6",
+    "jshint": "^2.7.0",
     "jshint-stylish": "^1.0.1",
-    "rimraf": "^2.3.2",
-    "yargs": "^3.7.2"
+    "mocha": "^2.2.1",
+    "mocha-lcov-reporter": "0.0.2",
+    "rimraf": "^2.3.2"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"

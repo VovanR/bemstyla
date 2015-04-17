@@ -1,7 +1,7 @@
 {
   "preset": "yandex",
-  "additionalRules": [
-    "node_modules/jscs-jsdoc/lib/rules/*.js"
+  "plugins": [
+    "jscs-jsdoc"
   ],
   "jsDoc": {
     "checkParamNames": true,

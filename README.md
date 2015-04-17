@@ -1,5 +1,11 @@
 # bemstyla
 
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Coveralls Status][coveralls-image]][coveralls-url]
+[![Dependency Status][depstat-image]][depstat-url]
+[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+
 One command
 ```
 $ bemstyla block__elem_mod-name_mod-val
@@ -44,3 +50,18 @@ bemstyla block__foo block__bar_baz foo__bar foo__qux
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
 * [BEM Tools](//github.com/bem/bem-tools) (`bem create`)
+
+[npm-url]: https://npmjs.org/package/bemstyla
+[npm-image]: http://img.shields.io/npm/v/bemstyla.svg
+
+[travis-url]: https://travis-ci.org/VovanR/bemstyla
+[travis-image]: http://img.shields.io/travis/VovanR/bemstyla.svg
+
+[coveralls-url]: https://coveralls.io/r/VovanR/bemstyla
+[coveralls-image]: http://img.shields.io/coveralls/VovanR/bemstyla.svg
+
+[depstat-url]: https://david-dm.org/VovanR/bemstyla
+[depstat-image]: https://david-dm.org/VovanR/bemstyla.svg
+
+[depstat-dev-url]: https://david-dm.org/VovanR/bemstyla
+[depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg
