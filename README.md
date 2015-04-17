@@ -7,12 +7,12 @@
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 One command
-```
+```sh
 $ bemstyla block__elem_mod-name_mod-val
 ```
 
 Makes dirs and styl files
-```
+```sh
 $ tree
 blocks
 └── block
@@ -24,7 +24,7 @@ blocks
 ```
 
 And writes initial selector
-```
+```sh
 $ cat blocks/block/block__elem.styl
 .block__elem
     {}
@@ -32,13 +32,13 @@ $ cat blocks/block/block__elem.styl
 
 ## Install
 
-```
+```sh
 npm i -g bemstyla
 ```
 
 ## Usage
 
-```
+```sh
 bemstyla block__elem
 bemstyla foo_size_small
 bemstyla bar__baz_qux
