@@ -25,6 +25,9 @@ describe('creator', function () {
     });
 
     describe('_mkdir', function () {
+        /**
+         * @param {String} term
+         */
         var testTerm = function (term) {
             _.forEach(testData, function (data) {
                 clearTemp();
@@ -63,6 +66,9 @@ describe('creator', function () {
     });
 
     describe('#touch', function () {
+        /**
+         * @param {String} term
+         */
         var testTerm = function (term) {
             _.forEach(testData, function (data) {
                 clearTemp();
