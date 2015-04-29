@@ -1,7 +1,7 @@
 {
   "name": "bemstyla",
   "description": "Creates block__elem_mod-name_mod-val styl files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vladimir Rodkin <mail@vovanr.com>",
   "keywords": [
     "bem",
@@ -42,7 +42,7 @@
     "jshint-stylish": "^1.0.1",
     "mocha": "^2.2.1",
     "mocha-lcov-reporter": "0.0.2",
-    "rimraf": "^2.3.2"
+    "mock-fs": "^2.6.0"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
