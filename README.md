@@ -53,6 +53,13 @@ bemstyla header.jade
 bemstyla content.jade sidebar.jade footer.jade
 ```
 
+### HTML file support
+
+```sh
+bemstyla index.html
+bemstyla _content.html _sidebar.html _footer.html
+```
+
 ## Solutions with the same functionality
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
