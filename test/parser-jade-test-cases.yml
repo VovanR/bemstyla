@@ -1,0 +1,56 @@
+- input: ''
+  output: []
+
+- input: block
+  output: []
+
+- input: .block
+  output:
+    - block
+
+- input: .block.block_theme_simple
+  output:
+    - block
+    - block_theme_simple
+
+- input: |
+    block
+    .block
+  output:
+    - block
+
+- input: |
+    block
+    .block
+    foo
+    .bar
+  output:
+    - block
+    - bar
+
+- input: |
+    block
+    .block
+    foo
+
+    .bar
+  output:
+    - block
+    - bar
+
+- input: .foo.bar.foo.baz.foo
+  output:
+    - foo
+    - bar
+    - baz
+
+- input: |
+    .header.header_theme_simple
+        .header__side.header__side_align_left
+        .header__side.header__side_align_right
+  output:
+    - header
+    - header_theme_simple
+    - header__side
+    - header__side_align_left
+    - header__side_align_right
