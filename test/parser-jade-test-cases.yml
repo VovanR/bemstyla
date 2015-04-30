@@ -54,3 +54,8 @@
     - header__side
     - header__side_align_left
     - header__side_align_right
+
+- input: |
+    .progressbar__bar(style='width: 90%;')
+  output:
+    - progressbar__bar
