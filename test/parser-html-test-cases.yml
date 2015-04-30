@@ -1,0 +1,112 @@
+- input: ''
+  output: []
+
+- input: |
+    <span>foo</span>
+  output: []
+
+- input: |
+    <span class="block">foo</span>
+  output:
+    - block
+
+- input: |
+    <span class="block block_theme_simple">foo</span>
+  output:
+    - block
+    - block_theme_simple
+
+- input: |
+    <span class="carousel-nav"></span>
+  output:
+    - carousel-nav
+
+- input: |
+    <span></span>
+    <span class="block"></span>
+
+    <span></span>
+    <span class="bar"></span>
+  output:
+    - block
+    - bar
+
+- input: |
+    <span class="foo"></span>
+    <span class="bar"></span>
+    <span class="foo"></span>
+    <span class="baz"></span>
+    <span class="foo"></span>
+  output:
+    - foo
+    - bar
+    - baz
+
+- input: |
+    <button class="button" type="button"><i class="icon"></i></button>
+  output:
+    - button
+    - icon
+
+- input: |
+    <div class="header header_theme_simple">
+      <div class="header__side header__side_align_left">
+      </div>
+      <div class="header__side header__side_align_right">
+      </div>
+    </div>
+  output:
+    - header
+    - header_theme_simple
+    - header__side
+    - header__side_align_left
+    - header__side_align_right
+
+- input: |
+    <i class="
+      block
+      block_theme_simple
+    "></i>
+  output:
+    - block
+    - block_theme_simple
+
+- input: |
+    <i class="block
+      block_theme_simple
+    "></i>
+  output:
+    - block
+    - block_theme_simple
+
+- input: |
+    <i class="block
+      block_theme_simple"></i>
+  output:
+    - block
+    - block_theme_simple
+
+- input: |
+    <i
+    class="
+    block
+    "></i>
+  output:
+    - block
+
+- input: |
+    <i
+    class="
+      	block
+    "></i>
+  output:
+    - block
+
+- input: |
+    <span class='block'>foo</span>
+  output:
+    - block
+
+- input: |
+    <spanclass="block">foo</span>
+  output: []

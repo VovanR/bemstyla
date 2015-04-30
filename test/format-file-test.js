@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var formatFile = require('../lib/format-file');
 var _ = require('lodash');
 
-describe('parser', function () {
+describe('formatFile', function () {
     it('should be `Object`', function () {
         assert.isObject(formatFile);
     });
