@@ -46,6 +46,13 @@ bemstyla block__foo block__bar_baz foo__bar foo__qux
 ...
 ```
 
+### [Jade](http://jade-lang.com/) file support
+
+```sh
+bemstyla header.jade
+bemstyla content.jade sidebar.jade footer.jade
+```
+
 ## Solutions with the same functionality
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
