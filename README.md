@@ -8,12 +8,12 @@
 
 One command
 ```sh
-$ bemstyla block__elem_mod-name_mod-val
+bemstyla block__elem_mod-name_mod-val
 ```
 
 Makes dirs and styl files
 ```sh
-$ tree
+tree
 blocks
 └── block
     ├── __elem
@@ -25,7 +25,7 @@ blocks
 
 And writes initial selector
 ```sh
-$ cat blocks/block/block__elem.styl
+cat blocks/block/block__elem.styl
 .block__elem
     {}
 ```
@@ -49,8 +49,8 @@ bemstyla block__foo block__bar_baz foo__bar foo__qux
 ### [Jade](http://jade-lang.com/) file support
 
 ```sh
-bemstyla header.jade
-bemstyla content.jade sidebar.jade footer.jade
+bemstyla index.jade
+bemstyla _content.jade _sidebar.jade _footer.jade
 ```
 
 ### HTML file support
@@ -64,6 +64,9 @@ bemstyla _content.html _sidebar.html _footer.html
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
 * [BEM Tools](//github.com/bem/bem-tools) (`bem create`)
+
+## License
+MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [npm-url]: https://npmjs.org/package/bemstyla
 [npm-image]: http://img.shields.io/npm/v/bemstyla.svg
