@@ -42,7 +42,8 @@
     "jshint-stylish": "^1.0.2",
     "mocha": "^2.2.1",
     "mocha-lcov-reporter": "0.0.2",
-    "mock-fs": "^2.6.0"
+    "mock-fs": "^2.6.0",
+    "sinon": "^1.14.1"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
