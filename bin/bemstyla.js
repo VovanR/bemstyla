@@ -7,6 +7,7 @@ var pkg = require('../package.json');
 
 program
     .version(pkg.version)
+    .option('-d, --dest', 'Destination directory')
     .parse(process.argv);
 
 if (program.args.length < 1) {
