@@ -4,7 +4,7 @@ var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 
-var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
+var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-test-cases.yml', 'utf8'));
 
 describe('formatFileDir', function () {
     it('should be `Object`', function () {

@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var exists = fs.existsSync || path.existsSync;
 
-var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
+var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
 /**

@@ -6,7 +6,7 @@ var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
 
-var testData = yaml.safeLoad(fs.readFileSync('./test/parser-html-test-cases.yml', 'utf8'));
+var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/parser-html-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
 
