@@ -32,11 +32,15 @@ describe('parserHTML', function () {
     });
 
     describe('#parseFile', function () {
-        it('should return an empty array if file does not exists', function () {
-            assert.isArray(parserHTML.parseFile());
+        it('should return an empty array if file does not exists', function (done) {
+            parserHTML.parseFile()
+                .then(function (data) {
+                    assert.isArray(data);
+                    done();
+                });
         });
 
-        it('should parse HTML file', function () {
+        it('should parse HTML file', function (done) {
             var mockData = {};
 
             var filePath = path.join(TEMP_DIR, 'foo.html');
@@ -45,9 +49,13 @@ describe('parserHTML', function () {
             mockfs(mockData);
 
             assert.deepEqual(fs.readFileSync(filePath).toString(), fileText);
-            assert.deepEqual(parserHTML.parseFile(filePath), ['foo', 'bar']);
 
-            mockfs.restore();
+            parserHTML.parseFile(filePath)
+                .then(function (data) {
+                    assert.deepEqual(data, ['foo', 'bar']);
+                    mockfs.restore();
+                    done();
+                });
         });
     });
 });
