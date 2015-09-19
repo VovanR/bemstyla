@@ -83,7 +83,10 @@ describe('index', function () {
             return {
                 /**
                  */
-                then: function () {}
+                then: function () {},
+                /**
+                 */
+                catch: function () {},
             };
         });
 
@@ -102,7 +105,10 @@ describe('index', function () {
             return {
                 /**
                  */
-                then: function () {}
+                then: function () {},
+                /**
+                 */
+                catch: function () {},
             };
         });
 
