@@ -31,11 +31,15 @@ describe('parserJade', function () {
     });
 
     describe('#parseFile', function () {
-        it('should return an empty array if file does not exists', function () {
-            assert.isArray(parserJade.parseFile());
+        it('should return an empty array if file does not exists', function (done) {
+            parserJade.parseFile()
+                .then(function (data) {
+                    assert.isArray(data);
+                    done();
+                });
         });
 
-        it('should parse Jade file', function () {
+        it('should parse Jade file', function (done) {
             var mockData = {};
 
             var filePath = path.join(TEMP_DIR, 'foo.jade');
@@ -44,9 +48,13 @@ describe('parserJade', function () {
             mockfs(mockData);
 
             assert.deepEqual(fs.readFileSync(filePath).toString(), fileText);
-            assert.deepEqual(parserJade.parseFile(filePath), ['foo', 'bar']);
 
-            mockfs.restore();
+            parserJade.parseFile(filePath)
+                .then(function (data) {
+                    assert.deepEqual(data, ['foo', 'bar']);
+                    mockfs.restore();
+                    done();
+                });
         });
     });
 });
