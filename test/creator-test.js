@@ -27,90 +27,109 @@ describe('creator', function () {
     describe('_mkdir', function () {
         /**
          * @param {String} term
+         * @param {Function} done
+         * @param {Number} [index=0]
          */
-        var testTerm = function (term) {
-            _.forEach(testData, function (data) {
-                clearTemp();
-                var _dir = data.output[term].file.dir;
-                var dir = path.join(TEMP_DIR, _dir);
+        function test(term, done, index) {
+            index = index === undefined ? -1 : index;
+            if (++index >= testData.length) {
+                done();
+                return;
+            }
 
-                if (_dir === '') {
-                    return;
-                }
+            clearTemp();
+            var data = testData[index];
+            var _dir = data.output[term].file.dir;
+            var dir = path.join(TEMP_DIR, _dir);
 
-                assert.notOk(exists(dir), 'rm ' + _dir);
-                creator._mkdir(dir);
-                assert.ok(exists(dir), 'mk ' + _dir);
-            });
-        };
+            if (_dir === '') {
+                test(term, done, index);
+                return;
+            }
+
+            assert.notOk(exists(dir), 'rm ' + _dir);
+
+            creator._mkdir(dir)
+                .then(function () {
+                    assert.ok(exists(dir), 'mk ' + _dir);
+                })
+                .finally(function () {
+                    test(term, done, index);
+                });
+        }
 
         it('should add block dir', function (done) {
-            testTerm('block');
-            done();
+            test('block', done);
         });
 
         it('should add block mod dir', function (done) {
-            testTerm('bmod');
-            done();
+            test('bmod', done);
         });
 
         it('should add elem dir', function (done) {
-            testTerm('elem');
-            done();
+            test('elem', done);
         });
 
         it('should add elem mod dir', function (done) {
-            testTerm('emod');
-            done();
+            test('emod', done);
         });
     });
 
     describe('#touch', function () {
         /**
          * @param {String} term
+         * @param {Function} done
+         * @param {Number} [index=0]
          */
-        var testTerm = function (term) {
-            _.forEach(testData, function (data) {
-                clearTemp();
-                var fileData = _.clone(data.output[term].file);
+        function test(term, done, index) {
+            index = index === undefined ? -1 : index;
+            if (++index >= testData.length) {
+                done();
+                return;
+            }
 
-                if (!fileData.dir || !fileData.name) {
-                    return;
-                }
+            clearTemp();
+            var data = testData[index];
+            var fileData = _.clone(data.output[term].file);
 
-                _.merge(fileData, {
-                    dir: path.join(TEMP_DIR, fileData.dir),
-                });
-                creator.touch(fileData);
+            if (!fileData.dir || !fileData.name) {
+                test(term, done, index);
+                return;
+            }
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
-                assert.isTrue(fs.statSync(filePath).isFile());
-                var text = '.' + fileData.name + '\n    {}\n';
-                assert.equal(text, fs.readFileSync(filePath));
+            _.merge(fileData, {
+                dir: path.join(TEMP_DIR, fileData.dir),
             });
-        };
+
+            creator.touch(fileData)
+                .then(function () {
+                    var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+                    assert.isTrue(fs.statSync(filePath).isFile());
+                    var text = '.' + fileData.name + '\n    {}\n';
+                    assert.equal(text, fs.readFileSync(filePath));
+                })
+                .finally(function () {
+                    test(term, done, index);
+                });
+        }
 
         it('should add block file', function (done) {
-            testTerm('block');
-            done();
+            test('block', done);
         });
 
         it('should add block mod file', function (done) {
-            testTerm('bmod');
-            done();
+            test('bmod', done);
         });
 
         it('should add elem file', function (done) {
-            testTerm('elem');
-            done();
+            test('elem', done);
         });
 
         it('should add elem mod file', function (done) {
-            testTerm('emod');
-            done();
+            test('emod', done);
         });
 
-        it('should not rewrite exists files', function () {
+        it('should not rewrite exists files', function (done) {
             mockfs.restore();
 
             var fileData = {
@@ -126,8 +145,12 @@ describe('creator', function () {
             mockfs(mockData);
 
             assert.equal(fs.readFileSync(filePath), testText);
-            creator.touch(fileData);
-            assert.equal(fs.readFileSync(filePath), testText);
+            creator.touch(fileData)
+                .finally(function () {
+                    assert.equal(fs.readFileSync(filePath).toString(), testText);
+                    done();
+                })
+                .catch(function (err) {});
         });
     });
 });
