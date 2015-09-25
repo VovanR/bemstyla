@@ -73,6 +73,26 @@ describe('creator', function () {
         it('should add elem mod dir', function (done) {
             test('emod', done);
         });
+
+        it('should not reject if directory already exists', function (done) {
+            mockfs.restore();
+
+            var dirPath = path.join(TEMP_DIR, 'block');
+
+            var mockData = {};
+            mockData[dirPath] = {};
+            mockfs(mockData);
+
+            assert.ok(exists(dirPath));
+            creator._mkdir(dirPath)
+                .then(function () {
+                    assert.ok(exists(dirPath));
+                    done();
+                })
+                .catch(function () {
+                    assert.ok(false);
+                });
+        });
     });
 
     describe('#touch', function () {
