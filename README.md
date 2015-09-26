@@ -6,6 +6,8 @@
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
+> Creates block__elem_mod-name_mod-value styl files
+
 One command
 ```sh
 bemstyla block__elem_mod-name_mod-val
@@ -69,16 +71,16 @@ bemstyla _content.html _sidebar.html _footer.html
 MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [npm-url]: https://npmjs.org/package/bemstyla
-[npm-image]: http://img.shields.io/npm/v/bemstyla.svg
+[npm-image]: http://img.shields.io/npm/v/bemstyla.svg?style=flat-square
 
 [travis-url]: https://travis-ci.org/VovanR/bemstyla
-[travis-image]: http://img.shields.io/travis/VovanR/bemstyla.svg
+[travis-image]: http://img.shields.io/travis/VovanR/bemstyla.svg?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/VovanR/bemstyla
-[coveralls-image]: http://img.shields.io/coveralls/VovanR/bemstyla.svg
+[coveralls-image]: http://img.shields.io/coveralls/VovanR/bemstyla.svg?style=flat-square
 
 [depstat-url]: https://david-dm.org/VovanR/bemstyla
-[depstat-image]: https://david-dm.org/VovanR/bemstyla.svg
+[depstat-image]: https://david-dm.org/VovanR/bemstyla.svg?style=flat-square
 
 [depstat-dev-url]: https://david-dm.org/VovanR/bemstyla
-[depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg
+[depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg?style=flat-square
