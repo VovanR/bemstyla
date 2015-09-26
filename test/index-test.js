@@ -24,7 +24,13 @@ describe('index', function () {
 
     it('should fire Jade parser if source contains `.jade`', function () {
         sinon.stub(parser, 'parse');
-        sinon.stub(parserJade, 'parseFile');
+        sinon.stub(parserJade, 'parseFile', function () {
+            return {
+                /**
+                 */
+                then: function () {}
+            };
+        });
         sinon.stub(parserHTML, 'parseFile');
         sinon.stub(formatFile, 'format');
         sinon.stub(formatFileDir, 'format');
@@ -47,7 +53,13 @@ describe('index', function () {
     it('should fire HTML parser if source contains `.html`', function () {
         sinon.stub(parser, 'parse');
         sinon.stub(parserJade, 'parseFile');
-        sinon.stub(parserHTML, 'parseFile');
+        sinon.stub(parserHTML, 'parseFile', function () {
+            return {
+                /**
+                 */
+                then: function () {}
+            };
+        });
         sinon.stub(formatFile, 'format');
         sinon.stub(formatFileDir, 'format');
         sinon.stub(formatFileName, 'format');
@@ -66,23 +78,47 @@ describe('index', function () {
         creator.touch.restore();
     });
 
-    it('should fire creator if source is simple string', function () {
-        sinon.stub(creator, 'touch');
+    it('should fire creator if source is simple string', function (done) {
+        sinon.stub(creator, 'touch', function () {
+            return {
+                /**
+                 */
+                then: function () {},
+                /**
+                 */
+                catch: function () {},
+            };
+        });
 
-        index('block__elem_mod');
-        assert.isTrue(creator.touch.called);
-        assert.equal(creator.touch.callCount, 4);
+        index('block__elem_mod')
+            .then(function () {
+                assert.isTrue(creator.touch.called);
+                assert.equal(creator.touch.callCount, 4);
 
-        creator.touch.restore();
+                creator.touch.restore();
+                done();
+            });
     });
 
-    it('should fire creator if source is array of simple strings', function () {
-        sinon.stub(creator, 'touch');
+    it('should fire creator if source is array of simple strings', function (done) {
+        sinon.stub(creator, 'touch', function () {
+            return {
+                /**
+                 */
+                then: function () {},
+                /**
+                 */
+                catch: function () {},
+            };
+        });
 
-        index(['block__elem_mod', 'foo__bar']);
-        assert.isTrue(creator.touch.called);
-        assert.equal(creator.touch.callCount, 8);
+        index(['block__elem_mod', 'foo__bar'])
+            .then(function () {
+                assert.isTrue(creator.touch.called);
+                assert.equal(creator.touch.callCount, 8);
 
-        creator.touch.restore();
+                creator.touch.restore();
+                done();
+            });
     });
 });

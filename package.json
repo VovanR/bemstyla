@@ -51,6 +51,7 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^2.10.0",
     "commander": "^2.7.1",
     "fs": "0.0.2",
     "lodash": "^3.8.0",
