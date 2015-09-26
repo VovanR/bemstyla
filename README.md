@@ -35,7 +35,7 @@ cat blocks/block/block__elem.styl
 ## Install
 
 ```sh
-npm i -g bemstyla
+npm install -g bemstyla
 ```
 
 ## Usage
