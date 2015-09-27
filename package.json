@@ -29,14 +29,14 @@
     "test": "xo && mocha"
   },
   "devDependencies": {
-    "chai": "^2.1.2",
+    "chai": "^3.3.0",
     "coveralls": "^2.11.4",
     "husky": "^0.10.1",
     "istanbul": "^0.3.21",
     "js-yaml": "^3.4.2",
     "mocha": "^2.3.3",
-    "mocha-lcov-reporter": "0.0.2",
-    "mock-fs": "^2.6.0",
+    "mocha-lcov-reporter": "1.0.0",
+    "mock-fs": "^3.2.0",
     "sinon": "^1.17.1",
     "xo": "^0.9.0"
   },
