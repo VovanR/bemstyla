@@ -23,12 +23,10 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "postpublish": "git push --follow-tags",
     "precoveralls": "npm run coverage",
-    "prepush": "npm test; npm run lint",
+    "prepush": "npm test",
+    "precommit": "npm test",
     "tdd": "mocha --watch",
-    "test": "mocha",
-    "lint": "npm run jslint; npm run jscs",
-    "jslint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./lib/*.js ./bin/*.js ./test/*.js",
-    "jscs": "jscs ./lib/*.js ./bin/*.js ./test/*.js"
+    "test": "xo && mocha"
   },
   "devDependencies": {
     "chai": "^2.1.2",
@@ -43,7 +41,8 @@
     "mocha": "^2.2.1",
     "mocha-lcov-reporter": "0.0.2",
     "mock-fs": "^2.6.0",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "xo": "^0.9.0"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
