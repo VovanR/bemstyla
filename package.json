@@ -30,18 +30,14 @@
   },
   "devDependencies": {
     "chai": "^2.1.2",
-    "coveralls": "^2.11.2",
-    "husky": "^0.7.0",
-    "istanbul": "^0.3.11",
-    "js-yaml": "^3.2.7",
-    "jscs": "^1.13.1",
-    "jscs-jsdoc": "^1.0.0",
-    "jshint": "^2.7.0",
-    "jshint-stylish": "^1.0.2",
-    "mocha": "^2.2.1",
+    "coveralls": "^2.11.4",
+    "husky": "^0.10.1",
+    "istanbul": "^0.3.21",
+    "js-yaml": "^3.4.2",
+    "mocha": "^2.3.3",
     "mocha-lcov-reporter": "0.0.2",
     "mock-fs": "^2.6.0",
-    "sinon": "^1.14.1",
+    "sinon": "^1.17.1",
     "xo": "^0.9.0"
   },
   "bugs": {
@@ -50,11 +46,11 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.10.0",
-    "commander": "^2.7.1",
+    "bluebird": "^2.10.1",
+    "commander": "^2.8.1",
     "fs": "0.0.2",
-    "lodash": "^3.8.0",
-    "mkdirp": "^0.5.0",
-    "path": "^0.11.14"
+    "lodash": "^3.10.1",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7"
   }
 }
