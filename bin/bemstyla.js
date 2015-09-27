@@ -6,15 +6,15 @@ var _ = require('lodash');
 var pkg = require('../package.json');
 
 program
-    .version(pkg.version)
-    .parse(process.argv);
+	.version(pkg.version)
+	.parse(process.argv);
 
 if (program.args.length < 1) {
-    program.help();
+	program.help();
 }
 
 var index = require('../lib/index');
 
 _.forEach(program.args, function (arg) {
-    index(arg);
+	index(arg);
 });
