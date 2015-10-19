@@ -5,6 +5,7 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+[![XO code style][codestyle-image]][codestyle-url]
 
 > Creates block__elem_mod-name_mod-value styl files
 
@@ -84,3 +85,6 @@ MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [depstat-dev-url]: https://david-dm.org/VovanR/bemstyla
 [depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg?style=flat-square
+
+[codestyle-url]: https://github.com/sindresorhus/xo
+[codestyle-image]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square
