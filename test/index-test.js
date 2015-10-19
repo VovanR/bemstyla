@@ -27,7 +27,7 @@ describe('index', function () {
 		sinon.stub(parserJade, 'parseFile', function () {
 			return {
 				/**
-				 */
+				*/
 				then: function () {}
 			};
 		});
@@ -56,7 +56,7 @@ describe('index', function () {
 		sinon.stub(parserHTML, 'parseFile', function () {
 			return {
 				/**
-				 */
+				*/
 				then: function () {}
 			};
 		});
@@ -82,10 +82,10 @@ describe('index', function () {
 		sinon.stub(creator, 'touch', function () {
 			return {
 				/**
-				 */
+				*/
 				then: function () {},
 				/**
-				 */
+				*/
 				catch: function () {}
 			};
 		});
@@ -104,10 +104,10 @@ describe('index', function () {
 		sinon.stub(creator, 'touch', function () {
 			return {
 				/**
-				 */
+				*/
 				then: function () {},
 				/**
-				 */
+				*/
 				catch: function () {}
 			};
 		});
