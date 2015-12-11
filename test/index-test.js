@@ -121,4 +121,30 @@ describe('index', function () {
 				done();
 			});
 	});
+
+	it('should fire formatFile.format with options', function (done) {
+		sinon.stub(formatFile, 'format');
+		sinon.stub(creator, 'touch', function () {
+			return {
+				/**
+				*/
+				then: function () {},
+				/**
+				*/
+				catch: function () {}
+			};
+		});
+
+		index('block', 'css')
+			.then(function () {
+				assert.isTrue(formatFile.format.called);
+				assert.deepEqual(formatFile.format.getCall(0).args[0], {
+					fileType: 'css'
+				});
+
+				creator.touch.restore();
+				formatFile.format.restore();
+				done();
+			});
+	});
 });
