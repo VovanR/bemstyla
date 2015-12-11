@@ -7,6 +7,7 @@ var pkg = require('../package.json');
 
 program
 	.version(pkg.version)
+	.option('-t, --type [type]', 'file type [styl]', 'styl')
 	.parse(process.argv);
 
 if (program.args.length < 1) {
@@ -16,5 +17,5 @@ if (program.args.length < 1) {
 var index = require('../lib/index');
 
 _.forEach(program.args, function (arg) {
-	index(arg);
+	index(arg, program.type);
 });
