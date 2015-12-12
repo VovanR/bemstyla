@@ -12,12 +12,12 @@ program
 	.on('--help', function () {
 		console.log('  Examples:');
 		console.log('');
-		console.log('    $ bemstyla -h');
-		console.log('    $ bemstyla block__elem');
-		console.log('    $ bemstyla foo_size_small');
-		console.log('    $ bemstyla bar__baz_qux -t css');
-		console.log('    $ bemstyla block__foo block__bar_baz foo__bar foo__qux');
-		console.log('    $ bemstyla blockname -d styles/blocks');
+		console.log('    bemstyla -h');
+		console.log('    bemstyla block__elem');
+		console.log('    bemstyla block__foo block__bar_baz foo__bar foo__qux');
+		console.log('    bemstyla header.jade footer.html');
+		console.log('    bemstyla -t css bar__baz_qux');
+		console.log('    bemstyla -d styles/blocks blockname');
 		console.log('');
 	})
 	.parse(process.argv);
