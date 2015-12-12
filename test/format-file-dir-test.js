@@ -43,5 +43,44 @@ describe('formatFileDir', function () {
 				);
 			});
 		});
+
+		it('should resolve base dir path', function () {
+			assert.deepEqual(
+				formatFileDir.format('foo__bar_baz', '/tmp/bemstyla'),
+				{
+					block: {
+						file: {
+							dir: '/tmp/bemstyla/foo'
+						}
+					},
+					bmod: {
+						file: {
+							dir: ''
+						}
+					},
+					elem: {
+						file: {
+							dir: '/tmp/bemstyla/foo/__bar'
+						}
+					},
+					emod: {
+						file: {
+							dir: '/tmp/bemstyla/foo/__bar/_baz'
+						}
+					}
+				}
+			);
+		});
+
+		it('should normalize base dir path', function () {
+			assert.deepEqual(
+				formatFileDir.format('foo', '/tmp//bemstyla/').block,
+				{
+					file: {
+						dir: '/tmp/bemstyla/foo'
+					}
+				}
+			);
+		});
 	});
 });
