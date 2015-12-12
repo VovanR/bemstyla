@@ -37,7 +37,9 @@ describe('index', function () {
 		sinon.stub(formatFileName, 'format');
 		sinon.stub(creator, 'touch');
 
-		index('foo.jade');
+		index({
+			source: 'foo.jade'
+		});
 		assert.isTrue(parserJade.parseFile.calledOnce);
 		assert.equal(parserJade.parseFile.getCall(0).args[0], 'foo.jade');
 
@@ -65,7 +67,9 @@ describe('index', function () {
 		sinon.stub(formatFileName, 'format');
 		sinon.stub(creator, 'touch');
 
-		index('foo.html');
+		index({
+			source: 'foo.html'
+		});
 		assert.isTrue(parserHTML.parseFile.calledOnce);
 		assert.equal(parserHTML.parseFile.getCall(0).args[0], 'foo.html');
 
@@ -90,7 +94,9 @@ describe('index', function () {
 			};
 		});
 
-		index('block__elem_mod')
+		index({
+			source: 'block__elem_mod'
+		})
 			.then(function () {
 				assert.isTrue(creator.touch.called);
 				assert.equal(creator.touch.callCount, 4);
@@ -112,7 +118,9 @@ describe('index', function () {
 			};
 		});
 
-		index(['block__elem_mod', 'foo__bar'])
+		index({
+			source: ['block__elem_mod', 'foo__bar']
+		})
 			.then(function () {
 				assert.isTrue(creator.touch.called);
 				assert.equal(creator.touch.callCount, 8);
@@ -135,7 +143,10 @@ describe('index', function () {
 			};
 		});
 
-		index('block', 'css')
+		index({
+			source: 'block',
+			fileType: 'css'
+		})
 			.then(function () {
 				assert.isTrue(formatFile.format.called);
 				assert.deepEqual(formatFile.format.getCall(0).args[0], {
@@ -144,6 +155,33 @@ describe('index', function () {
 
 				creator.touch.restore();
 				formatFile.format.restore();
+				done();
+			});
+	});
+
+	it('should fire formatFileDir.format with options', function (done) {
+		sinon.stub(formatFileDir, 'format');
+		sinon.stub(creator, 'touch', function () {
+			return {
+				/**
+				*/
+				then: function () {},
+				/**
+				*/
+				catch: function () {}
+			};
+		});
+
+		index({
+			source: 'block',
+			baseDir: '/tmp/bemstyla'
+		})
+			.then(function () {
+				assert.isTrue(formatFileDir.format.called);
+				assert.equal(formatFileDir.format.getCall(0).args[1], '/tmp/bemstyla');
+
+				creator.touch.restore();
+				formatFileDir.format.restore();
 				done();
 			});
 	});
