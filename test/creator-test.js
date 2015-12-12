@@ -1,3 +1,5 @@
+/* global describe it */
+
 var assert = require('chai').assert;
 var mockfs = require('mock-fs');
 var creator = require('../lib/creator');
@@ -7,127 +9,173 @@ var fs = require('fs');
 var path = require('path');
 var exists = fs.existsSync || path.existsSync;
 
-var testData = yaml.safeLoad(fs.readFileSync('./test/format-file-test-cases.yml', 'utf8'));
+var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
 /**
  */
 var clearTemp = function () {
-    mockfs.restore();
-    var mockData = {};
-    mockData[TEMP_DIR] = {};
-    mockfs(mockData);
+	mockfs.restore();
+	var mockData = {};
+	mockData[TEMP_DIR] = {};
+	mockfs(mockData);
 };
 
 describe('creator', function () {
-    it('should be `Object`', function () {
-        assert.isObject(creator);
-    });
+	it('should be `Object`', function () {
+		assert.isObject(creator);
+	});
 
-    describe('_mkdir', function () {
-        /**
-         * @param {String} term
-         */
-        var testTerm = function (term) {
-            _.forEach(testData, function (data) {
-                clearTemp();
-                var _dir = data.output[term].file.dir;
-                var dir = path.join(TEMP_DIR, _dir);
+	describe('_mkdir', function () {
+		/**
+		* @param {String} term
+		* @param {Function} done
+		* @param {Number} [index=0]
+		*/
+		function test(term, done, index) {
+			index = index === undefined ? -1 : index;
+			if (++index >= testData.length) {
+				done();
+				return;
+			}
 
-                if (_dir === '') {
-                    return;
-                }
+			clearTemp();
+			var data = testData[index];
+			var _dir = data.output[term].file.dir;
+			var dir = path.join(TEMP_DIR, _dir);
 
-                assert.notOk(exists(dir), 'rm ' + _dir);
-                creator._mkdir(dir);
-                assert.ok(exists(dir), 'mk ' + _dir);
-            });
-        };
+			if (_dir === '') {
+				test(term, done, index);
+				return;
+			}
 
-        it('should add block dir', function (done) {
-            testTerm('block');
-            done();
-        });
+			assert.notOk(exists(dir), 'rm ' + _dir);
 
-        it('should add block mod dir', function (done) {
-            testTerm('bmod');
-            done();
-        });
+			creator._mkdir(dir)
+				.then(function () {
+					assert.ok(exists(dir), 'mk ' + _dir);
+				})
+				.finally(function () {
+					test(term, done, index);
+				});
+		}
 
-        it('should add elem dir', function (done) {
-            testTerm('elem');
-            done();
-        });
+		it('should add block dir', function (done) {
+			test('block', done);
+		});
 
-        it('should add elem mod dir', function (done) {
-            testTerm('emod');
-            done();
-        });
-    });
+		it('should add block mod dir', function (done) {
+			test('bmod', done);
+		});
 
-    describe('#touch', function () {
-        /**
-         * @param {String} term
-         */
-        var testTerm = function (term) {
-            _.forEach(testData, function (data) {
-                clearTemp();
-                var fileData = _.clone(data.output[term].file);
+		it('should add elem dir', function (done) {
+			test('elem', done);
+		});
 
-                if (!fileData.dir || !fileData.name) {
-                    return;
-                }
+		it('should add elem mod dir', function (done) {
+			test('emod', done);
+		});
 
-                _.merge(fileData, {
-                    dir: path.join(TEMP_DIR, fileData.dir),
-                });
-                creator.touch(fileData);
+		it('should not reject if directory already exists', function (done) {
+			mockfs.restore();
 
-                var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
-                assert.isTrue(fs.statSync(filePath).isFile());
-                var text = '.' + fileData.name + '\n    {}\n';
-                assert.equal(text, fs.readFileSync(filePath));
-            });
-        };
+			var dirPath = path.join(TEMP_DIR, 'block');
 
-        it('should add block file', function (done) {
-            testTerm('block');
-            done();
-        });
+			var mockData = {};
+			mockData[dirPath] = {};
+			mockfs(mockData);
 
-        it('should add block mod file', function (done) {
-            testTerm('bmod');
-            done();
-        });
+			assert.ok(exists(dirPath));
+			creator._mkdir(dirPath)
+			.then(function () {
+				assert.ok(exists(dirPath));
+				done();
+			})
+			.catch(function () {
+				assert.ok(false);
+			});
+		});
+	});
 
-        it('should add elem file', function (done) {
-            testTerm('elem');
-            done();
-        });
+	describe('#touch', function () {
+		/**
+		* @param {String} term
+		* @param {Function} done
+		* @param {Number} [index=0]
+		*/
+		function test(term, done, index) {
+			index = index === undefined ? -1 : index;
+			if (++index >= testData.length) {
+				done();
+				return;
+			}
 
-        it('should add elem mod file', function (done) {
-            testTerm('emod');
-            done();
-        });
+			clearTemp();
+			var data = testData[index];
+			var fileData = _.clone(data.output[term].file);
 
-        it('should not rewrite exists files', function () {
-            mockfs.restore();
+			if (!fileData.dir || !fileData.name) {
+				test(term, done, index);
+				return;
+			}
 
-            var fileData = {
-                dir: path.join(TEMP_DIR, 'block'),
-                name: 'block',
-                ext: 'styl'
-            };
-            var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+			_.merge(fileData, {
+				dir: path.join(TEMP_DIR, fileData.dir)
+			});
 
-            var testText = 'Foo';
-            var mockData = {};
-            mockData[filePath] = testText;
-            mockfs(mockData);
+			creator.touch(fileData)
+				.then(function () {
+					var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+					assert.isTrue(fs.statSync(filePath).isFile());
+					var text = '.' + fileData.name + '\n    {}\n';
+					assert.equal(text, fs.readFileSync(filePath));
+				})
+				.catch(function () {
+					assert.ok(false);
+				})
+				.finally(function () {
+					test(term, done, index);
+				});
+		}
 
-            assert.equal(fs.readFileSync(filePath), testText);
-            creator.touch(fileData);
-            assert.equal(fs.readFileSync(filePath), testText);
-        });
-    });
+		it('should add block file', function (done) {
+			test('block', done);
+		});
+
+		it('should add block mod file', function (done) {
+			test('bmod', done);
+		});
+
+		it('should add elem file', function (done) {
+			test('elem', done);
+		});
+
+		it('should add elem mod file', function (done) {
+			test('emod', done);
+		});
+
+		it('should not rewrite exists files', function (done) {
+			mockfs.restore();
+
+			var fileData = {
+				dir: path.join(TEMP_DIR, 'block'),
+				name: 'block',
+				ext: 'styl'
+			};
+			var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+
+			var testText = 'Foo';
+			var mockData = {};
+			mockData[filePath] = testText;
+			mockfs(mockData);
+
+			assert.equal(fs.readFileSync(filePath), testText);
+			creator.touch(fileData)
+				.finally(function () {
+					assert.equal(fs.readFileSync(filePath).toString(), testText);
+					done();
+				})
+				.catch(function () {});
+		});
+	});
 });

@@ -1,7 +1,7 @@
 {
   "name": "bemstyla",
   "description": "Creates block__elem_mod-name_mod-val styl files",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Vladimir Rodkin <mail@vovanr.com>",
   "keywords": [
     "bem",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VovanR/bemstyla"
+    "url": "https://github.com/VovanR/bemstyla.git"
   },
   "bin": {
     "bemstyla": "./bin/bemstyla.js"
@@ -23,26 +23,22 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "postpublish": "git push --follow-tags",
     "precoveralls": "npm run coverage",
-    "prepush": "npm test; npm run lint",
+    "prepush": "npm test",
+    "precommit": "npm test",
     "tdd": "mocha --watch",
-    "test": "mocha",
-    "lint": "npm run jslint; npm run jscs",
-    "jslint": "jshint --reporter ./node_modules/jshint-stylish/stylish.js ./lib/*.js ./bin/*.js ./test/*.js",
-    "jscs": "jscs ./lib/*.js ./bin/*.js ./test/*.js"
+    "test": "xo && mocha"
   },
   "devDependencies": {
-    "chai": "^2.1.2",
-    "coveralls": "^2.11.2",
-    "husky": "^0.7.0",
-    "istanbul": "^0.3.11",
-    "js-yaml": "^3.2.7",
-    "jscs": "^1.13.1",
-    "jscs-jsdoc": "^1.0.0",
-    "jshint": "^2.7.0",
-    "jshint-stylish": "^1.0.2",
-    "mocha": "^2.2.1",
-    "mocha-lcov-reporter": "0.0.2",
-    "mock-fs": "^2.6.0"
+    "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
+    "husky": "^0.10.2",
+    "istanbul": "^0.4.1",
+    "js-yaml": "^3.4.6",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "1.0.0",
+    "mock-fs": "^3.5.0",
+    "sinon": "^1.17.2",
+    "xo": "^0.11.2"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
@@ -50,10 +46,11 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.7.1",
+    "bluebird": "^3.0.6",
+    "commander": "^2.9.0",
     "fs": "0.0.2",
-    "lodash": "^3.8.0",
-    "mkdirp": "^0.5.0",
-    "path": "^0.11.14"
+    "lodash": "^3.10.1",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7"
   }
 }

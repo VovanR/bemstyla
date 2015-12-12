@@ -5,6 +5,9 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+[![XO code style][codestyle-image]][codestyle-url]
+
+> Creates block__elem_mod-name_mod-value styl files
 
 One command
 ```sh
@@ -33,17 +36,29 @@ cat blocks/block/block__elem.styl
 ## Install
 
 ```sh
-npm i -g bemstyla
+npm install --global bemstyla
 ```
 
 ## Usage
 
-```sh
-bemstyla block__elem
-bemstyla foo_size_small
-bemstyla bar__baz_qux
-bemstyla block__foo block__bar_baz foo__bar foo__qux
-...
+```
+$ bemstyla --help
+
+  Usage: bemstyla [options]
+
+  Options:
+
+    -h, --help         output usage information
+    -V, --version      output the version number
+    -t, --type [type]  file type [styl]
+
+  Examples:
+
+    $ bemstyla -h
+    $ bemstyla block__elem
+    $ bemstyla foo_size_small
+    $ bemstyla bar__baz_qux -t css
+    $ bemstyla block__foo block__bar_baz foo__bar foo__qux
 ```
 
 ### [Jade](http://jade-lang.com/) file support
@@ -60,6 +75,15 @@ bemstyla index.html
 bemstyla _content.html _sidebar.html _footer.html
 ```
 
+### Output file extension
+
+Default: `styl`
+
+```sh
+bemstyla block__elem -t less
+bemstyla block__elem --type css
+```
+
 ## Solutions with the same functionality
 * [Bemy](//github.com/f0rmat1k/bemy)
 * [TEATIME](//github.com/sullenor/teatime)
@@ -69,16 +93,19 @@ bemstyla _content.html _sidebar.html _footer.html
 MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [npm-url]: https://npmjs.org/package/bemstyla
-[npm-image]: http://img.shields.io/npm/v/bemstyla.svg
+[npm-image]: http://img.shields.io/npm/v/bemstyla.svg?style=flat-square
 
 [travis-url]: https://travis-ci.org/VovanR/bemstyla
-[travis-image]: http://img.shields.io/travis/VovanR/bemstyla.svg
+[travis-image]: http://img.shields.io/travis/VovanR/bemstyla.svg?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/VovanR/bemstyla
-[coveralls-image]: http://img.shields.io/coveralls/VovanR/bemstyla.svg
+[coveralls-image]: http://img.shields.io/coveralls/VovanR/bemstyla.svg?style=flat-square
 
 [depstat-url]: https://david-dm.org/VovanR/bemstyla
-[depstat-image]: https://david-dm.org/VovanR/bemstyla.svg
+[depstat-image]: https://david-dm.org/VovanR/bemstyla.svg?style=flat-square
 
 [depstat-dev-url]: https://david-dm.org/VovanR/bemstyla
-[depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg
+[depstat-dev-image]: https://david-dm.org/VovanR/bemstyla/dev-status.svg?style=flat-square
+
+[codestyle-url]: https://github.com/sindresorhus/xo
+[codestyle-image]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square

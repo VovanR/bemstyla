@@ -1,58 +1,72 @@
+/* global describe it */
+
 var assert = require('chai').assert;
 var formatFile = require('../lib/format-file');
 var _ = require('lodash');
 
 describe('formatFile', function () {
-    it('should be `Object`', function () {
-        assert.isObject(formatFile);
-    });
+	it('should be `Object`', function () {
+		assert.isObject(formatFile);
+	});
 
-    describe('#format', function () {
-        var testResult = {
-            block: {
-                file: {
-                    name: '',
-                    dir: '',
-                    ext: 'styl'
-                }
-            },
-            bmod: {
-                file: {
-                    name: '',
-                    dir: '',
-                    ext: 'styl'
-                }
-            },
-            elem: {
-                file: {
-                    name: '',
-                    dir: '',
-                    ext: 'styl'
-                }
-            },
-            emod: {
-                file: {
-                    name: '',
-                    dir: '',
-                    ext: 'styl'
-                }
-            }
-        };
+	describe('#format', function () {
+		var testResult = {
+			block: {
+				file: {
+					name: '',
+					dir: '',
+					ext: 'styl'
+				}
+			},
+			bmod: {
+				file: {
+					name: '',
+					dir: '',
+					ext: 'styl'
+				}
+			},
+			elem: {
+				file: {
+					name: '',
+					dir: '',
+					ext: 'styl'
+				}
+			},
+			emod: {
+				file: {
+					name: '',
+					dir: '',
+					ext: 'styl'
+				}
+			}
+		};
 
-        it('should return mixed JSON object', function () {
-            var res = _.clone(testResult);
+		it('should return mixed JSON object', function () {
+			var res = _.cloneDeep(testResult);
 
-            assert.deepEqual(formatFile.format(), res);
-        });
+			assert.deepEqual(formatFile.format(), res);
+		});
 
-        it('should not assign objects', function () {
-            var res = _.clone(testResult);
+		it('should not assign objects', function () {
+			var res = _.cloneDeep(testResult);
 
-            var formatted = formatFile.format();
-            assert.deepEqual(formatted, res);
-            formatted.block.file.dir = 'foo';
-            res.block.file.dir = 'foo';
-            assert.deepEqual(formatted, res);
-        });
-    });
+			var formatted = formatFile.format();
+			assert.deepEqual(formatted, res);
+			formatted.block.file.dir = 'foo';
+			res.block.file.dir = 'foo';
+			assert.deepEqual(formatted, res);
+		});
+
+		it('should set filetype', function () {
+			var res = _.cloneDeep(testResult);
+			_.forEach(res, function (r) {
+				r.file.ext = 'css';
+			});
+
+			var formatted = formatFile.format({
+				fileType: 'css'
+			});
+			assert.deepEqual(formatted, res);
+		});
+	});
 });
