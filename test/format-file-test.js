@@ -42,18 +42,30 @@ describe('formatFile', function () {
 		};
 
 		it('should return mixed JSON object', function () {
-			var res = _.clone(testResult);
+			var res = _.cloneDeep(testResult);
 
 			assert.deepEqual(formatFile.format(), res);
 		});
 
 		it('should not assign objects', function () {
-			var res = _.clone(testResult);
+			var res = _.cloneDeep(testResult);
 
 			var formatted = formatFile.format();
 			assert.deepEqual(formatted, res);
 			formatted.block.file.dir = 'foo';
 			res.block.file.dir = 'foo';
+			assert.deepEqual(formatted, res);
+		});
+
+		it('should set filetype', function () {
+			var res = _.cloneDeep(testResult);
+			_.forEach(res, function (r) {
+				r.file.ext = 'css';
+			});
+
+			var formatted = formatFile.format({
+				fileType: 'css'
+			});
 			assert.deepEqual(formatted, res);
 		});
 	});

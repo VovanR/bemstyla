@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VovanR/bemstyla"
+    "url": "https://github.com/VovanR/bemstyla.git"
   },
   "bin": {
     "bemstyla": "./bin/bemstyla.js"
@@ -29,16 +29,16 @@
     "test": "xo && mocha"
   },
   "devDependencies": {
-    "chai": "^3.3.0",
+    "chai": "^3.4.1",
     "coveralls": "^2.11.4",
-    "husky": "^0.10.1",
-    "istanbul": "^0.3.21",
-    "js-yaml": "^3.4.2",
-    "mocha": "^2.3.3",
+    "husky": "^0.10.2",
+    "istanbul": "^0.4.1",
+    "js-yaml": "^3.4.6",
+    "mocha": "^2.3.4",
     "mocha-lcov-reporter": "1.0.0",
-    "mock-fs": "^3.2.0",
-    "sinon": "^1.17.1",
-    "xo": "^0.9.0"
+    "mock-fs": "^3.5.0",
+    "sinon": "^1.17.2",
+    "xo": "^0.11.2"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
@@ -46,8 +46,8 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.10.1",
-    "commander": "^2.8.1",
+    "bluebird": "^3.0.6",
+    "commander": "^2.9.0",
     "fs": "0.0.2",
     "lodash": "^3.10.1",
     "mkdirp": "^0.5.1",

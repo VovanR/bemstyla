@@ -36,17 +36,31 @@ cat blocks/block/block__elem.styl
 ## Install
 
 ```sh
-npm install -g bemstyla
+npm install --global bemstyla
 ```
 
 ## Usage
 
-```sh
-bemstyla block__elem
-bemstyla foo_size_small
-bemstyla bar__baz_qux
-bemstyla block__foo block__bar_baz foo__bar foo__qux
-...
+```
+bemstyla --help
+
+  Usage: bemstyla [options]
+
+  Options:
+
+    -h, --help         output usage information
+    -V, --version      output the version number
+    -t, --type [type]  file type [styl]
+    -d, --dir [value]  output files location
+
+  Examples:
+
+    bemstyla -h
+    bemstyla block__elem
+    bemstyla block__foo block__bar_baz foo__bar foo__qux
+    bemstyla header.jade footer.html
+    bemstyla -t css bar__baz_qux
+    bemstyla -d styles/blocks blockname
 ```
 
 ### [Jade](http://jade-lang.com/) file support
@@ -61,6 +75,22 @@ bemstyla _content.jade _sidebar.jade _footer.jade
 ```sh
 bemstyla index.html
 bemstyla _content.html _sidebar.html _footer.html
+```
+
+### Output file extension
+
+Default: `styl`
+
+```sh
+bemstyla -t less block__elem
+bemstyla --type css block__elem
+```
+
+### Output file location
+
+```sh
+bemstyla -d css/components block__elem
+bemstyla --dir styles/blocks block__elem
 ```
 
 ## Solutions with the same functionality
