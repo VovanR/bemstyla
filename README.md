@@ -48,10 +48,11 @@ bemstyla --help
 
   Options:
 
-    -h, --help         output usage information
-    -V, --version      output the version number
-    -t, --type [type]  file type [styl]
-    -d, --dir [value]  output files location
+    -h, --help             output usage information
+    -V, --version          output the version number
+    -t, --type [type]      file type [styl]
+    -f, --format [format]  file content format [styl] (by default based on type)
+    -d, --dir [path]       output files location
 
   Examples:
 
@@ -60,6 +61,7 @@ bemstyla --help
     bemstyla block__foo block__bar_baz foo__bar foo__qux
     bemstyla header.jade footer.html
     bemstyla -t css bar__baz_qux
+    bemstyla -f less foo_bar
     bemstyla -d styles/blocks blockname
 ```
 
@@ -85,6 +87,30 @@ Default: `styl`
 bemstyla -t less block__elem
 bemstyla --type css block__elem
 ```
+
+### File content format
+
+Default: `styl` based on file type
+
+```sh
+bemstyla -f less block__elem
+bemstyla --format css block__elem
+```
+
+**Formats**
+- `css`, `less`, `scss`
+
+  ```css
+  .block {
+  }
+  ```
+
+- `styl`, `sass`
+
+  ```css
+  .block
+      {}
+  ```
 
 ### Output file location
 
