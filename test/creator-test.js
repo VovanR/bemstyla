@@ -127,8 +127,7 @@ describe('creator', function () {
 				.then(function () {
 					var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
 					assert.isTrue(fs.statSync(filePath).isFile());
-					var text = '.' + fileData.name + '\n    {}\n';
-					assert.equal(text, fs.readFileSync(filePath));
+					assert.equal(fileData.content, fs.readFileSync(filePath).toString());
 				})
 				.catch(function () {
 					assert.ok(false);
@@ -160,7 +159,8 @@ describe('creator', function () {
 			var fileData = {
 				dir: path.join(TEMP_DIR, 'block'),
 				name: 'block',
-				ext: 'styl'
+				ext: 'styl',
+				content: '.block\n    {}'
 			};
 			var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
 
@@ -176,6 +176,30 @@ describe('creator', function () {
 					done();
 				})
 				.catch(function () {});
+		});
+
+		it('should write correct formatted file content', function (done) {
+			clearTemp();
+
+			var fileData = {
+				dir: path.join(TEMP_DIR, 'block'),
+				name: 'block',
+				ext: 'styl',
+				content: '.block {\n}'
+			};
+			var filePath = path.join(fileData.dir, fileData.name + '.' + fileData.ext);
+			var testText = '.block {\n}';
+
+			assert.notOk(exists(filePath));
+			creator.touch(fileData)
+				.finally(function () {
+					assert.equal(fs.readFileSync(filePath).toString(), testText);
+					done();
+				})
+				.catch(function () {
+					assert.equal(fs.readFileSync(filePath).toString(), testText);
+					done();
+				});
 		});
 	});
 });
