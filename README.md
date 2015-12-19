@@ -98,18 +98,29 @@ bemstyla --format css block__elem
 ```
 
 **Formats**
+- Default, `styl`, `sass`
+
+  ```css
+  .block
+      {}
+  ```
+  Usage
+  ```styl
+  .block
+      border: none
+  ```
+
 - `css`, `less`, `scss`
 
   ```css
   .block {
   }
   ```
-
-- `styl`, `sass`
-
+  Usage
   ```css
-  .block
-      {}
+  .block {
+      border: none;
+  }
   ```
 
 ### Output file location
