@@ -19,4 +19,16 @@ describe('ENV', function () {
 			assert.isString(ENV.DS);
 		});
 	});
+
+	describe('FORMATS', function () {
+		it('should be `Object`', function () {
+			assert.isObject(ENV.FORMATS);
+		});
+	});
+
+	describe('DEFAULT_FORMAT', function () {
+		it('should be `String`', function () {
+			assert.isString(ENV.DEFAULT_FORMAT);
+		});
+	});
 });
