@@ -10,7 +10,8 @@ var fs = require('fs');
 program
 	.version(pkg.version)
 	.option('-t, --type [type]', 'file type [styl]', 'styl')
-	.option('-d, --dir [value]', 'output files location')
+	.option('-f, --format [format]', 'file content format [styl] (by default based on type)', 'styl')
+	.option('-d, --dir [path]', 'output files location')
 	.on('--help', function () {
 		console.log('  Examples:');
 		console.log('');
@@ -19,6 +20,7 @@ program
 		console.log('    bemstyla block__foo block__bar_baz foo__bar foo__qux');
 		console.log('    bemstyla header.jade footer.html');
 		console.log('    bemstyla -t css bar__baz_qux');
+		console.log('    bemstyla -f less foo_bar');
 		console.log('    bemstyla -d styles/blocks blockname');
 		console.log('');
 	})
@@ -59,6 +61,7 @@ function start() {
 		index({
 			source: arg,
 			fileType: program.type,
+			fileFormat: program.format || program.type,
 			baseDir: program.dir
 		});
 	});
