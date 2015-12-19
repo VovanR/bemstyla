@@ -1,0 +1,148 @@
+- input: ''
+  output:
+    block:
+      file:
+        content: ''
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''
+
+- input: block
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''
+
+- input: block_mod
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: |-
+          .block_mod
+              {}
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''
+
+- input: block_mod-name_mod-val
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: |-
+          .block_mod-name_mod-val
+              {}
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''
+
+- input: block__elem
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: |-
+          .block__elem
+              {}
+    emod:
+      file:
+        content: ''
+
+- input: block__elem_mod
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: |-
+          .block__elem
+              {}
+    emod:
+      file:
+        content: |-
+          .block__elem_mod
+              {}
+
+- input: block__elem_mod-name_mod-val
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: |-
+          .block__elem
+              {}
+    emod:
+      file:
+        content: |-
+          .block__elem_mod-name_mod-val
+              {}
+
+- input: block
+  format: css
+  output:
+    block:
+      file:
+        content: |-
+          .block {
+          }
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''

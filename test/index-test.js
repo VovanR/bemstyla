@@ -11,6 +11,7 @@ var parserHTML = require('../lib/parser-html');
 var formatFile = require('../lib/format-file');
 var formatFileDir = require('../lib/format-file-dir');
 var formatFileName = require('../lib/format-file-name');
+var formatFileContent = require('../lib/format-file-content');
 var creator = require('../lib/creator');
 
 describe('index', function () {
@@ -82,7 +83,7 @@ describe('index', function () {
 		creator.touch.restore();
 	});
 
-	it('should fire creator if source is simple string', function (done) {
+	function stubCreator() {
 		sinon.stub(creator, 'touch', function () {
 			return {
 				/**
@@ -93,6 +94,10 @@ describe('index', function () {
 				catch: function () {}
 			};
 		});
+	}
+
+	it('should fire creator if source is simple string', function (done) {
+		stubCreator();
 
 		index({
 			source: 'block__elem_mod'
@@ -107,16 +112,7 @@ describe('index', function () {
 	});
 
 	it('should fire creator if source is array of simple strings', function (done) {
-		sinon.stub(creator, 'touch', function () {
-			return {
-				/**
-				*/
-				then: function () {},
-				/**
-				*/
-				catch: function () {}
-			};
-		});
+		stubCreator();
 
 		index({
 			source: ['block__elem_mod', 'foo__bar']
@@ -132,16 +128,7 @@ describe('index', function () {
 
 	it('should fire formatFile.format with options', function (done) {
 		sinon.stub(formatFile, 'format');
-		sinon.stub(creator, 'touch', function () {
-			return {
-				/**
-				*/
-				then: function () {},
-				/**
-				*/
-				catch: function () {}
-			};
-		});
+		stubCreator();
 
 		index({
 			source: 'block',
@@ -161,16 +148,7 @@ describe('index', function () {
 
 	it('should fire formatFileDir.format with options', function (done) {
 		sinon.stub(formatFileDir, 'format');
-		sinon.stub(creator, 'touch', function () {
-			return {
-				/**
-				*/
-				then: function () {},
-				/**
-				*/
-				catch: function () {}
-			};
-		});
+		stubCreator();
 
 		index({
 			source: 'block',
@@ -182,6 +160,24 @@ describe('index', function () {
 
 				creator.touch.restore();
 				formatFileDir.format.restore();
+				done();
+			});
+	});
+
+	it('should fire formatFileContent.format with options', function (done) {
+		sinon.stub(formatFileContent, 'format');
+		stubCreator();
+
+		index({
+			source: 'block',
+			fileFormat: 'foo'
+		})
+			.then(function () {
+				assert.isTrue(formatFileContent.format.called);
+				assert.equal(formatFileContent.format.getCall(0).args[1], 'foo');
+
+				creator.touch.restore();
+				formatFileContent.format.restore();
 				done();
 			});
 	});

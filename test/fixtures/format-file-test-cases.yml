@@ -6,6 +6,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     bmod:
       name: ''
       value: ''
@@ -13,12 +14,14 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
+        content: ''
     emod:
       name: ''
       value: ''
@@ -26,6 +29,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
 
 - input: block
   output:
@@ -35,6 +39,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: ''
       value: ''
@@ -42,12 +49,14 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
+        content: ''
     emod:
       name: ''
       value: ''
@@ -55,6 +64,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
 
 - input: block_mod
   output:
@@ -64,6 +74,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: mod
       value: ''
@@ -71,12 +84,16 @@
         dir: block/_mod
         name: block_mod
         ext: styl
+        content: |-
+          .block_mod
+              {}
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
+        content: ''
     emod:
       name: ''
       value: ''
@@ -84,6 +101,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
 
 - input: block_mod-name_mod-val
   output:
@@ -93,6 +111,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: mod-name
       value: mod-val
@@ -100,12 +121,16 @@
         dir: block/_mod-name
         name: block_mod-name_mod-val
         ext: styl
+        content: |-
+          .block_mod-name_mod-val
+              {}
     elem:
       name: ''
       file:
         dir: ''
         name: ''
         ext: styl
+        content: ''
     emod:
       name: ''
       value: ''
@@ -113,6 +138,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
 
 - input: block__elem
   output:
@@ -122,6 +148,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: ''
       value: ''
@@ -129,12 +158,16 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
+        content: |-
+          .block__elem
+              {}
     emod:
       name: ''
       value: ''
@@ -142,6 +175,7 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
 
 - input: block__elem_mod
   output:
@@ -151,6 +185,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: ''
       value: ''
@@ -158,12 +195,16 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
+        content: |-
+          .block__elem
+              {}
     emod:
       name: mod
       value: ''
@@ -171,6 +212,9 @@
         dir: block/__elem/_mod
         name: block__elem_mod
         ext: styl
+        content: |-
+          .block__elem_mod
+              {}
 
 - input: block__elem_mod-name_mod-val
   output:
@@ -180,6 +224,9 @@
         dir: block
         name: block
         ext: styl
+        content: |-
+          .block
+              {}
     bmod:
       name: ''
       value: ''
@@ -187,12 +234,16 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: elem
       file:
         dir: block/__elem
         name: block__elem
         ext: styl
+        content: |-
+          .block__elem
+              {}
     emod:
       name: mod-name
       value: mod-val
@@ -200,6 +251,9 @@
         dir: block/__elem/_mod-name
         name: block__elem_mod-name_mod-val
         ext: styl
+        content: |-
+          .block__elem_mod-name_mod-val
+              {}
 
 - input: foo__bar_baz
   output:
@@ -209,6 +263,9 @@
         dir: foo
         name: foo
         ext: styl
+        content: |-
+          .foo
+              {}
     bmod:
       name: ''
       value: ''
@@ -216,12 +273,16 @@
         dir: ''
         name: ''
         ext: styl
+        content: ''
     elem:
       name: bar
       file:
         dir: foo/__bar
         name: foo__bar
         ext: styl
+        content: |-
+          .foo__bar
+              {}
     emod:
       name: baz
       value: ''
@@ -229,3 +290,6 @@
         dir: foo/__bar/_baz
         name: foo__bar_baz
         ext: styl
+        content: |-
+          .foo__bar_baz
+              {}
