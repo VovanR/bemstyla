@@ -50,5 +50,18 @@ describe('formatFileContent', function () {
 			});
 			done();
 		});
+
+		it('should format file content with default format if format does not exist', function (done) {
+			var result = formatFileContent.format('block', 'foo');
+			assert.deepEqual(
+				result.block,
+				{
+					file: {
+						content: '.block\n    {}'
+					}
+				}
+			);
+			done();
+		});
 	});
 });
