@@ -146,3 +146,43 @@
     emod:
       file:
         content: ''
+
+- input: block--mod
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: |-
+          .block--mod
+              {}
+    elem:
+      file:
+        content: ''
+    emod:
+      file:
+        content: ''
+
+- input: block__elem--mod
+  output:
+    block:
+      file:
+        content: |-
+          .block
+              {}
+    bmod:
+      file:
+        content: ''
+    elem:
+      file:
+        content: |-
+          .block__elem
+              {}
+    emod:
+      file:
+        content: |-
+          .block__elem--mod
+              {}

@@ -39,7 +39,8 @@ describe('formatFileDir', function () {
 								dir: data.output.emod.file.dir
 							}
 						}
-					}
+					},
+					data.input
 				);
 			});
 		});

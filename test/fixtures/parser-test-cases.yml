@@ -4,11 +4,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: ''
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block
   block:
@@ -16,11 +18,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: ''
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block_mod
   block:
@@ -28,11 +32,13 @@
   bmod:
     name: mod
     value: ''
+    sep: _
   elem:
     name: ''
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block_mod-name_mod-val
   block:
@@ -40,11 +46,13 @@
   bmod:
     name: mod-name
     value: mod-val
+    sep: _
   elem:
     name: ''
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block__elem
   block:
@@ -52,11 +60,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block__elem_mod
   block:
@@ -64,11 +74,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod
     value: ''
+    sep: _
 
 - data: block__elem_mod-name_mod-val
   block:
@@ -76,11 +88,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod-name
     value: mod-val
+    sep: _
 
 - data: foo__bar_baz
   block:
@@ -88,11 +102,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: bar
   emod:
     name: baz
     value: ''
+    sep: _
 
 - data: block_mod__elem
   block:
@@ -100,11 +116,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block_mod__elem_mod
   block:
@@ -112,11 +130,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod
     value: ''
+    sep: _
 
 - data: block_mod__elem_mod-name_mod-val
   block:
@@ -124,11 +144,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod-name
     value: mod-val
+    sep: _
 
 - data: block_mod-name_mod-val__elem
   block:
@@ -136,11 +158,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: ''
     value: ''
+    sep: ''
 
 - data: block_mod-name_mod-val__elem_mod
   block:
@@ -148,11 +172,13 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod
     value: ''
+    sep: _
 
 - data: block_mod-name_mod-val__elem_mod-name_mod-val
   block:
@@ -160,8 +186,38 @@
   bmod:
     name: ''
     value: ''
+    sep: ''
   elem:
     name: elem
   emod:
     name: mod-name
     value: mod-val
+    sep: _
+
+- data: block--mod
+  block:
+    name: block
+  bmod:
+    name: mod
+    value: ''
+    sep: --
+  elem:
+    name: ''
+  emod:
+    name: ''
+    value: ''
+    sep: ''
+
+- data: block__elem--mod
+  block:
+    name: block
+  bmod:
+    name: ''
+    value: ''
+    sep: ''
+  elem:
+    name: elem
+  emod:
+    name: mod
+    value: ''
+    sep: --

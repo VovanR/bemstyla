@@ -45,7 +45,8 @@ describe('formatFileContent', function () {
 								content: data.output.emod.file.content
 							}
 						}
-					}
+					},
+					data.input
 				);
 			});
 			done();

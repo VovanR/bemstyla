@@ -23,7 +23,8 @@ describe('parser', function () {
 						bmod: data.bmod,
 						elem: data.elem,
 						emod: data.emod
-					}
+					},
+					data.data
 				);
 			});
 		});

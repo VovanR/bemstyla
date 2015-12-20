@@ -293,3 +293,79 @@
         content: |-
           .foo__bar_baz
               {}
+
+- input: block--mod
+  output:
+    block:
+      name: block
+      file:
+        dir: block
+        name: block
+        ext: styl
+        content: |-
+          .block
+              {}
+    bmod:
+      name: mod
+      value: ''
+      file:
+        dir: block
+        name: block--mod
+        ext: styl
+        content: |-
+          .block--mod
+              {}
+    elem:
+      name: ''
+      file:
+        dir: ''
+        name: ''
+        ext: styl
+        content: ''
+    emod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
+        name: ''
+        ext: styl
+        content: ''
+
+- input: block__elem--mod
+  output:
+    block:
+      name: block
+      file:
+        dir: block
+        name: block
+        ext: styl
+        content: |-
+          .block
+              {}
+    bmod:
+      name: ''
+      value: ''
+      file:
+        dir: ''
+        name: ''
+        ext: styl
+        content: ''
+    elem:
+      name: elem
+      file:
+        dir: block/__elem
+        name: block__elem
+        ext: styl
+        content: |-
+          .block__elem
+              {}
+    emod:
+      name: mod
+      value: ''
+      file:
+        dir: block/__elem
+        name: block__elem--mod
+        ext: styl
+        content: |-
+          .block__elem--mod
+              {}
