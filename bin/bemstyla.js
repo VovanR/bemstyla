@@ -10,7 +10,7 @@ var fs = require('fs');
 program
 	.version(pkg.version)
 	.option('-t, --type [type]', 'file type [styl]', 'styl')
-	.option('-f, --format [format]', 'file content format [styl] (by default based on type)', 'styl')
+	.option('-f, --format [format]', 'file content format [styl] (by default based on type)')
 	.option('-d, --dir [path]', 'output files location')
 	.on('--help', function () {
 		console.log('  Examples:');
