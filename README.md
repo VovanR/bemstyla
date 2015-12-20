@@ -58,7 +58,8 @@ bemstyla --help
 
     bemstyla -h
     bemstyla block__elem
-    bemstyla block__foo block__bar_baz foo__bar foo__qux
+    bemstyla block_mod block__elem_mod foo__bar foo__qux
+    bemstyla block--mod block__elem--mod
     bemstyla header.jade footer.html
     bemstyla -t css bar__baz_qux
     bemstyla -f less foo_bar
