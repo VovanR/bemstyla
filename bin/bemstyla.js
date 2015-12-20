@@ -17,7 +17,8 @@ program
 		console.log('');
 		console.log('    bemstyla -h');
 		console.log('    bemstyla block__elem');
-		console.log('    bemstyla block__foo block__bar_baz foo__bar foo__qux');
+		console.log('    bemstyla block_mod block__elem_mod foo__bar foo__qux');
+		console.log('    bemstyla block--mod block__elem--mod');
 		console.log('    bemstyla header.jade footer.html');
 		console.log('    bemstyla -t css bar__baz_qux');
 		console.log('    bemstyla -f less foo_bar');
