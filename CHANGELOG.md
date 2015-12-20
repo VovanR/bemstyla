@@ -1,3 +1,6 @@
+## 1.3.1
+- Fix file content format detection
+
 ## 1.3.0
 - Add destination directory option
 - Add file extension option
