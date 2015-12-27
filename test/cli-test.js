@@ -4,8 +4,16 @@ var assert = require('chai').assert;
 var fs = require('fs');
 var path = require('path');
 var tempfile = require('tempfile');
-var exists = fs.existsSync || path.existsSync;
 var execa = require('execa');
+
+function exists(pathName) {
+	try {
+		fs.statSync(pathName);
+		return true;
+	} catch (err) {
+		return false;
+	}
+}
 
 var FN = path.join(process.cwd(), 'bin', 'bemstyla.js');
 var TEMP_DIR = tempfile();

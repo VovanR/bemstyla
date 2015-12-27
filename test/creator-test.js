@@ -7,19 +7,26 @@ var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
-var exists = fs.existsSync || path.existsSync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
-/**
- */
-var clearTemp = function () {
+
+function clearTemp() {
 	mockfs.restore();
 	var mockData = {};
 	mockData[TEMP_DIR] = {};
 	mockfs(mockData);
-};
+}
+
+function exists(pathName) {
+	try {
+		fs.statSync(pathName);
+		return true;
+	} catch (err) {
+		return false;
+	}
+}
 
 describe('creator', function () {
 	it('should be `Object`', function () {
