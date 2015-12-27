@@ -16,7 +16,7 @@
     "bemstyla": "./bin/bemstyla.js"
   },
   "engines": {
-    "node": ""
+    "node": ">=0.12"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha --",
