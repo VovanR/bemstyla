@@ -55,7 +55,7 @@ describe('creator', function () {
 				.then(function () {
 					assert.ok(exists(dir), 'mk ' + _dir);
 				})
-				.finally(function () {
+				.then(function () {
 					test(term, done, index);
 				});
 		}
@@ -129,11 +129,11 @@ describe('creator', function () {
 					assert.isTrue(fs.statSync(filePath).isFile());
 					assert.equal(fileData.content, fs.readFileSync(filePath).toString());
 				})
+				.then(function () {
+					test(term, done, index);
+				})
 				.catch(function () {
 					assert.ok(false);
-				})
-				.finally(function () {
-					test(term, done, index);
 				});
 		}
 
@@ -171,11 +171,10 @@ describe('creator', function () {
 
 			assert.equal(fs.readFileSync(filePath), testText);
 			creator.touch(fileData)
-				.finally(function () {
+				.catch(function () {
 					assert.equal(fs.readFileSync(filePath).toString(), testText);
 					done();
-				})
-				.catch(function () {});
+				});
 		});
 
 		it('should write correct formatted file content', function (done) {
@@ -192,7 +191,7 @@ describe('creator', function () {
 
 			assert.notOk(exists(filePath));
 			creator.touch(fileData)
-				.finally(function () {
+				.then(function () {
 					assert.equal(fs.readFileSync(filePath).toString(), testText);
 					done();
 				})

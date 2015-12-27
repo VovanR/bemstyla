@@ -4,7 +4,6 @@
 var program = require('commander');
 var _ = require('lodash');
 var pkg = require('../package.json');
-var Promise = require('bluebird');
 var fs = require('fs');
 
 program
