@@ -75,4 +75,15 @@ describe('cli', function () {
 			done();
 		});
 	});
+
+	it('should create file in custom dir', function (done) {
+		var c = path.join(TEMP_DIR, 'custom');
+		fs.mkdirSync(c);
+		var p = path.join(c, 'foo');
+		assert.isFalse(exists(p));
+		execa(FN, ['-d', 'custom', 'foo'], {cwd: TEMP_DIR}).then(function () {
+			assert.isTrue(exists(p));
+			done();
+		});
+	});
 });
