@@ -5,7 +5,6 @@ var sinon = require('sinon');
 var mockfs = require('mock-fs');
 var index = require('../lib/index');
 
-var parser = require('../lib/parser');
 var parserJade = require('../lib/parser-jade');
 var parserHTML = require('../lib/parser-html');
 var formatFile = require('../lib/format-file');
@@ -24,7 +23,6 @@ describe('index', function () {
 	});
 
 	it('should fire Jade parser if source contains `.jade`', function () {
-		sinon.stub(parser, 'parse');
 		sinon.stub(parserJade, 'parseFile', function () {
 			return {
 				/**
@@ -44,7 +42,6 @@ describe('index', function () {
 		assert.isTrue(parserJade.parseFile.calledOnce);
 		assert.equal(parserJade.parseFile.getCall(0).args[0], 'foo.jade');
 
-		parser.parse.restore();
 		parserJade.parseFile.restore();
 		parserHTML.parseFile.restore();
 		formatFile.format.restore();
@@ -54,7 +51,6 @@ describe('index', function () {
 	});
 
 	it('should fire HTML parser if source contains `.html`', function () {
-		sinon.stub(parser, 'parse');
 		sinon.stub(parserJade, 'parseFile');
 		sinon.stub(parserHTML, 'parseFile', function () {
 			return {
@@ -74,7 +70,6 @@ describe('index', function () {
 		assert.isTrue(parserHTML.parseFile.calledOnce);
 		assert.equal(parserHTML.parseFile.getCall(0).args[0], 'foo.html');
 
-		parser.parse.restore();
 		parserJade.parseFile.restore();
 		parserHTML.parseFile.restore();
 		formatFile.format.restore();

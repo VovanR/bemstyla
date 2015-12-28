@@ -47,6 +47,7 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
+    "bem-classname-parser": "^0.1.1",
     "commander": "^2.9.0",
     "fs": "0.0.2",
     "lodash": "^3.10.1",
