@@ -7,19 +7,26 @@ var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
-var exists = fs.existsSync || path.existsSync;
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-test-cases.yml', 'utf8'));
 
 var TEMP_DIR = '/tmp/bemstyla';
-/**
- */
-var clearTemp = function () {
+
+function clearTemp() {
 	mockfs.restore();
 	var mockData = {};
 	mockData[TEMP_DIR] = {};
 	mockfs(mockData);
-};
+}
+
+function exists(pathName) {
+	try {
+		fs.statSync(pathName);
+		return true;
+	} catch (err) {
+		return false;
+	}
+}
 
 describe('creator', function () {
 	it('should be `Object`', function () {
@@ -55,7 +62,7 @@ describe('creator', function () {
 				.then(function () {
 					assert.ok(exists(dir), 'mk ' + _dir);
 				})
-				.finally(function () {
+				.then(function () {
 					test(term, done, index);
 				});
 		}
@@ -129,11 +136,11 @@ describe('creator', function () {
 					assert.isTrue(fs.statSync(filePath).isFile());
 					assert.equal(fileData.content, fs.readFileSync(filePath).toString());
 				})
+				.then(function () {
+					test(term, done, index);
+				})
 				.catch(function () {
 					assert.ok(false);
-				})
-				.finally(function () {
-					test(term, done, index);
 				});
 		}
 
@@ -171,11 +178,10 @@ describe('creator', function () {
 
 			assert.equal(fs.readFileSync(filePath), testText);
 			creator.touch(fileData)
-				.finally(function () {
+				.catch(function () {
 					assert.equal(fs.readFileSync(filePath).toString(), testText);
 					done();
-				})
-				.catch(function () {});
+				});
 		});
 
 		it('should write correct formatted file content', function (done) {
@@ -192,7 +198,7 @@ describe('creator', function () {
 
 			assert.notOk(exists(filePath));
 			creator.touch(fileData)
-				.finally(function () {
+				.then(function () {
 					assert.equal(fs.readFileSync(filePath).toString(), testText);
 					done();
 				})
