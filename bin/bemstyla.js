@@ -5,6 +5,7 @@ var program = require('commander');
 var _ = require('lodash');
 var pkg = require('../package.json');
 var fs = require('fs');
+var updateNotifier = require('update-notifier');
 
 program
 	.version(pkg.version)
@@ -25,6 +26,8 @@ program
 		console.log('');
 	})
 	.parse(process.argv);
+
+updateNotifier({pkg: pkg}).notify();
 
 if (program.args.length < 1) {
 	program.help();
