@@ -36,7 +36,7 @@
     "js-yaml": "^3.4.6",
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "1.0.0",
-    "mock-fs": "^3.5.0",
+    "mock-fs": "^3.6.0",
     "sinon": "^1.17.2",
     "tempfile": "^1.1.1",
     "xo": "^0.12.1"
@@ -47,7 +47,7 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
-    "bem-classname-parser": "^0.2.0",
+    "bem-classname-parser": "^0.3.0",
     "commander": "^2.9.0",
     "fs": "0.0.2",
     "lodash": "^3.10.1",
