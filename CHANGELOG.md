@@ -1,3 +1,6 @@
+## 1.3.2
+- Fix breaking changes from bem-classname-parser #29
+
 ## 1.3.1
 - Fix file content format detection
 
