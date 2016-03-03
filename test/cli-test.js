@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var tempfile = require('tempfile');
 var execa = require('execa');
+var readPkg = require('read-pkg');
 
 function exists(pathName) {
 	try {
@@ -29,9 +30,15 @@ describe('cli', function () {
 	});
 
 	it('should show version', function (done) {
-		execa(FN, ['-V'])
-			.then(function (result) {
-				assert.isTrue(result.stdout.length >= 5);
+		var cliV = execa(FN, ['-V']);
+		var pkgV = readPkg(path.dirname(__dirname));
+
+		Promise.all([cliV, pkgV])
+			.then(function (results) {
+				return [results[0].stdout, results[1].version];
+			})
+			.then(function (results) {
+				assert.equal(results[0], results[1]);
 				done();
 			});
 	});
