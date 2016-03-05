@@ -1,3 +1,7 @@
+## 1.4.0
+- Update dependencies
+- Code refactoring
+
 ## 1.3.2
 - Fix breaking changes from bem-classname-parser #29
 
