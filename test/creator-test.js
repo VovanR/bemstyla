@@ -3,7 +3,8 @@
 var assert = require('chai').assert;
 var mockfs = require('mock-fs');
 var creator = require('../lib/creator');
-var _ = require('lodash');
+var clone = require('clone');
+var merge = require('merge');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
@@ -119,14 +120,14 @@ describe('creator', function () {
 
 			clearTemp();
 			var data = testData[index];
-			var fileData = _.clone(data.output[term].file);
+			var fileData = clone(data.output[term].file);
 
 			if (!fileData.dir || !fileData.name) {
 				test(term, done, index);
 				return;
 			}
 
-			_.merge(fileData, {
+			merge.recursive(fileData, {
 				dir: path.join(TEMP_DIR, fileData.dir)
 			});
 

@@ -2,7 +2,6 @@
 
 var assert = require('chai').assert;
 var formatFileName = require('../lib/format-file-name');
-var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 
@@ -15,7 +14,7 @@ describe('formatFileName', function () {
 
 	describe('#format', function () {
 		it('should format file names object', function () {
-			_.forEach(testData, function (data) {
+			testData.forEach(function (data) {
 				assert.deepEqual(
 					formatFileName.format(data.input),
 					{

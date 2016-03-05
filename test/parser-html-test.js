@@ -3,7 +3,6 @@
 var assert = require('chai').assert;
 var mockfs = require('mock-fs');
 var parserHTML = require('../lib/parser-html');
-var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
@@ -23,7 +22,7 @@ describe('parserHTML', function () {
 		});
 
 		it('should parse class names from html text', function () {
-			_.forEach(testData, function (data) {
+			testData.forEach(function (data) {
 				assert.deepEqual(
 					parserHTML.parseString(data.input),
 					data.output,

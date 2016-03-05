@@ -2,7 +2,6 @@
 'use strict';
 
 var program = require('commander');
-var _ = require('lodash');
 var pkg = require('../package.json');
 var fs = require('fs');
 var updateNotifier = require('update-notifier');
@@ -60,7 +59,7 @@ function checkAccess(path) {
 function start() {
 	var index = require('../lib/index');
 
-	_.forEach(program.args, function (arg) {
+	program.args.forEach(function (arg) {
 		index({
 			source: arg,
 			fileType: program.type,
