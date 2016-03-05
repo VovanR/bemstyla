@@ -2,7 +2,6 @@
 
 var assert = require('chai').assert;
 var formatFileContent = require('../lib/format-file-content');
-var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 
@@ -15,7 +14,7 @@ describe('formatFileContent', function () {
 
 	describe('#format', function () {
 		it('should format file content object', function (done) {
-			_.forEach(testData, function (data) {
+			testData.forEach(function (data) {
 				var result;
 				if (data.format) {
 					result = formatFileContent.format(data.input, data.format);

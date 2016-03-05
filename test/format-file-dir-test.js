@@ -2,7 +2,6 @@
 
 var assert = require('chai').assert;
 var formatFileDir = require('../lib/format-file-dir');
-var _ = require('lodash');
 var yaml = require('js-yaml');
 var fs = require('fs');
 
@@ -15,7 +14,7 @@ describe('formatFileDir', function () {
 
 	describe('#format', function () {
 		it('should format file dirs object', function () {
-			_.forEach(testData, function (data) {
+			testData.forEach(function (data) {
 				assert.deepEqual(
 					formatFileDir.format(data.input),
 					{

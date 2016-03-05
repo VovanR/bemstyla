@@ -48,10 +48,12 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
+    "array-uniq": "^1.0.2",
     "bem-classname-parser": "^1.0.0",
+    "clone": "^1.0.2",
     "commander": "^2.9.0",
     "fs": "0.0.2",
-    "lodash": "^4.6.1",
+    "merge": "^1.2.0",
     "mkdirp": "^0.5.1",
     "path": "^0.12.7",
     "update-notifier": "^0.6.1"

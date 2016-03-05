@@ -2,7 +2,7 @@
 
 var assert = require('chai').assert;
 var formatFile = require('../lib/format-file');
-var _ = require('lodash');
+var clone = require('clone');
 
 describe('formatFile', function () {
 	it('should be `Object`', function () {
@@ -42,13 +42,13 @@ describe('formatFile', function () {
 		};
 
 		it('should return mixed JSON object', function () {
-			var res = _.cloneDeep(testResult);
+			var res = clone(testResult);
 
 			assert.deepEqual(formatFile.format(), res);
 		});
 
 		it('should not assign objects', function () {
-			var res = _.cloneDeep(testResult);
+			var res = clone(testResult);
 
 			var formatted = formatFile.format();
 			assert.deepEqual(formatted, res);
@@ -58,10 +58,12 @@ describe('formatFile', function () {
 		});
 
 		it('should set filetype', function () {
-			var res = _.cloneDeep(testResult);
-			_.forEach(res, function (r) {
-				r.file.ext = 'css';
-			});
+			var res = clone(testResult);
+			for (var r in res) {
+				if (res.hasOwnProperty(r)) {
+					res[r].file.ext = 'css';
+				}
+			}
 
 			var formatted = formatFile.format({
 				fileType: 'css'
