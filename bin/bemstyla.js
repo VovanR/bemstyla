@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-var program = require('commander');
-var pkg = require('../package.json');
 var fs = require('fs');
+var program = require('commander');
 var updateNotifier = require('update-notifier');
+var pkg = require('../package.json');
 
 program
 	.version(pkg.version)

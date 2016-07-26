@@ -1,8 +1,8 @@
 /* global describe it afterEach */
 
-var assert = require('chai').assert;
-var sinon = require('sinon');
 var mockfs = require('mock-fs');
+var sinon = require('sinon');
+var assert = require('chai').assert;
 var index = require('../lib/index');
 
 var parserJade = require('../lib/parser-jade');

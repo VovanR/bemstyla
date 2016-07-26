@@ -1,11 +1,11 @@
 /* global describe it */
 
-var assert = require('chai').assert;
 var fs = require('fs');
 var path = require('path');
 var tempfile = require('tempfile');
 var execa = require('execa');
 var readPkg = require('read-pkg');
+var assert = require('chai').assert;
 
 function exists(pathName) {
 	try {
