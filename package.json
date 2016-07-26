@@ -29,18 +29,18 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.8",
-    "execa": "^0.2.2",
-    "husky": "^0.11.3",
-    "istanbul": "^0.4.2",
-    "js-yaml": "^3.5.3",
-    "mocha": "^2.4.5",
+    "coveralls": "^2.11.11",
+    "execa": "^0.4.0",
+    "husky": "^0.11.6",
+    "istanbul": "^0.4.4",
+    "js-yaml": "^3.6.1",
+    "mocha": "^2.5.3",
     "mocha-lcov-reporter": "1.2.0",
-    "mock-fs": "^3.7.0",
+    "mock-fs": "^3.11.0",
     "read-pkg": "^1.1.0",
-    "sinon": "^1.17.3",
+    "sinon": "^1.17.5",
     "tempfile": "^1.1.1",
-    "xo": "^0.12.1"
+    "xo": "^0.16.0"
   },
   "bugs": {
     "url": "https://github.com/VovanR/bemstyla/issues"
@@ -48,14 +48,14 @@
   "homepage": "https://github.com/VovanR/bemstyla",
   "license": "MIT",
   "dependencies": {
-    "array-uniq": "^1.0.2",
-    "bem-classname-parser": "^1.0.0",
+    "array-uniq": "^1.0.3",
+    "bem-classname-parser": "^1.0.2",
     "clone": "^1.0.2",
     "commander": "^2.9.0",
     "fs": "0.0.2",
     "merge": "^1.2.0",
     "mkdirp": "^0.5.1",
     "path": "^0.12.7",
-    "update-notifier": "^0.6.1"
+    "update-notifier": "^1.0.2"
   }
 }

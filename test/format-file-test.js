@@ -1,8 +1,8 @@
 /* global describe it */
 
+var clone = require('clone');
 var assert = require('chai').assert;
 var formatFile = require('../lib/format-file');
-var clone = require('clone');
 
 describe('formatFile', function () {
 	it('should be `Object`', function () {
@@ -60,7 +60,7 @@ describe('formatFile', function () {
 		it('should set filetype', function () {
 			var res = clone(testResult);
 			for (var r in res) {
-				if (res.hasOwnProperty(r)) {
+				if ({}.hasOwnProperty.call(res, r)) {
 					res[r].file.ext = 'css';
 				}
 			}

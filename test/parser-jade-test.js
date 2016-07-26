@@ -1,11 +1,11 @@
 /* global describe it */
 
-var assert = require('chai').assert;
-var mockfs = require('mock-fs');
-var parserJade = require('../lib/parser-jade');
-var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
+var mockfs = require('mock-fs');
+var yaml = require('js-yaml');
+var assert = require('chai').assert;
+var parserJade = require('../lib/parser-jade');
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/parser-jade-test-cases.yml', 'utf8'));
 

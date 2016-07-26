@@ -1,11 +1,11 @@
 /* global describe it */
 
-var assert = require('chai').assert;
-var mockfs = require('mock-fs');
-var parserHTML = require('../lib/parser-html');
-var yaml = require('js-yaml');
 var fs = require('fs');
 var path = require('path');
+var mockfs = require('mock-fs');
+var yaml = require('js-yaml');
+var assert = require('chai').assert;
+var parserHTML = require('../lib/parser-html');
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/parser-html-test-cases.yml', 'utf8'));
 

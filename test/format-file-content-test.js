@@ -1,9 +1,9 @@
 /* global describe it */
 
+var fs = require('fs');
+var yaml = require('js-yaml');
 var assert = require('chai').assert;
 var formatFileContent = require('../lib/format-file-content');
-var yaml = require('js-yaml');
-var fs = require('fs');
 
 var testData = yaml.safeLoad(fs.readFileSync('./test/fixtures/format-file-content-test-cases.yml', 'utf8'));
 
