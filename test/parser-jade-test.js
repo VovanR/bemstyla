@@ -57,5 +57,23 @@ describe('parserJade', function () {
 					done();
 				});
 		});
+
+		it('should parse Pug file', function (done) {
+			var mockData = {};
+
+			var filePath = path.join(TEMP_DIR, 'foo.pug');
+			var fileText = '.foo.bar';
+			mockData[filePath] = fileText;
+			mockfs(mockData);
+
+			assert.deepEqual(fs.readFileSync(filePath).toString(), fileText);
+
+			parserJade.parseFile(filePath)
+				.then(function (data) {
+					assert.deepEqual(data, ['foo', 'bar']);
+					mockfs.restore();
+					done();
+				});
+		});
 	});
 });

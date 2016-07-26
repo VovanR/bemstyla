@@ -60,17 +60,17 @@ bemstyla --help
     bemstyla block__elem
     bemstyla block_mod block__elem_mod foo__bar foo__qux
     bemstyla block--mod block__elem--mod
-    bemstyla header.jade footer.html
+    bemstyla header.pug body.jade footer.html
     bemstyla -t css bar__baz_qux
     bemstyla -f less foo_bar
     bemstyla -d styles/blocks blockname
 ```
 
-### [Jade](http://jade-lang.com/) file support
+### [Pug (Jade)](https://github.com/pugjs/pug) file support
 
 ```sh
-bemstyla index.jade
-bemstyla _content.jade _sidebar.jade _footer.jade
+bemstyla index.pug
+bemstyla _content.pug _sidebar.pug _footer.pug
 ```
 
 ### HTML file support
