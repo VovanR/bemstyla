@@ -22,7 +22,7 @@ describe('index', function () {
 		assert.isFunction(index);
 	});
 
-	it('should fire Jade parser if source contains `.jade`', function () {
+	it('should fire Jade parser if source contains `.jade` or `.pug`', function () {
 		sinon.stub(parserJade, 'parseFile', function () {
 			return {
 				/**
@@ -37,10 +37,16 @@ describe('index', function () {
 		sinon.stub(creator, 'touch');
 
 		index({
-			source: 'foo.jade'
+			source: 'foo.pug'
 		});
 		assert.isTrue(parserJade.parseFile.calledOnce);
-		assert.equal(parserJade.parseFile.getCall(0).args[0], 'foo.jade');
+		assert.equal(parserJade.parseFile.getCall(0).args[0], 'foo.pug');
+
+		index({
+			source: 'foo.jade'
+		});
+		assert.isTrue(parserJade.parseFile.calledTwice);
+		assert.equal(parserJade.parseFile.getCall(1).args[0], 'foo.jade');
 
 		parserJade.parseFile.restore();
 		parserHTML.parseFile.restore();
