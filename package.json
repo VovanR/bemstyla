@@ -1,20 +1,10 @@
 {
   "name": "bemstyla",
-  "description": "Creates block__elem_mod-name_mod-val styl files",
   "version": "1.4.0",
+  "description": "Creates block__elem_mod-name_mod-val styl files",
+  "license": "MIT",
+  "repository": "VovanR/bemstyla",
   "author": "Vladimir Rodkin <mail@vovanr.com> (http://vovanr.com/)",
-  "keywords": [
-    "bem",
-    "cli",
-    "stylus"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VovanR/bemstyla.git"
-  },
-  "bin": {
-    "bemstyla": "./bin/bemstyla.js"
-  },
   "engines": {
     "node": ">=0.12"
   },
@@ -24,29 +14,20 @@
     "postpublish": "git push --follow-tags",
     "precoveralls": "npm run coverage",
     "prepush": "npm test",
+    "test": "xo && mocha",
     "tdd": "mocha --watch",
-    "test": "xo && mocha"
+    "release-patch": "mversion patch",
+    "release-minor": "mversion minor",
+    "release-major": "mversion major"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.11",
-    "execa": "^0.4.0",
-    "husky": "^0.11.6",
-    "istanbul": "^0.4.4",
-    "js-yaml": "^3.6.1",
-    "mocha": "^2.5.3",
-    "mocha-lcov-reporter": "1.2.0",
-    "mock-fs": "^3.11.0",
-    "read-pkg": "^1.1.0",
-    "sinon": "^1.17.5",
-    "tempfile": "^1.1.1",
-    "xo": "^0.16.0"
+  "bin": {
+    "bemstyla": "./bin/bemstyla.js"
   },
-  "bugs": {
-    "url": "https://github.com/VovanR/bemstyla/issues"
-  },
-  "homepage": "https://github.com/VovanR/bemstyla",
-  "license": "MIT",
+  "keywords": [
+    "bem",
+    "cli",
+    "stylus"
+  ],
   "dependencies": {
     "array-uniq": "^1.0.3",
     "bem-classname-parser": "^1.0.2",
@@ -57,5 +38,32 @@
     "mkdirp": "^0.5.1",
     "path": "^0.12.7",
     "update-notifier": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "conventional-changelog-cli": "^1.2.0",
+    "coveralls": "^2.11.11",
+    "cz-conventional-changelog": "^1.1.6",
+    "execa": "^0.4.0",
+    "husky": "^0.11.6",
+    "istanbul": "^0.4.4",
+    "js-yaml": "^3.6.1",
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "1.2.0",
+    "mock-fs": "^3.11.0",
+    "mversion": "^1.10.1",
+    "read-pkg": "^1.1.0",
+    "sinon": "^1.17.5",
+    "tempfile": "^1.1.1",
+    "xo": "^0.16.0"
+  },
+  "bugs": {
+    "url": "https://github.com/VovanR/bemstyla/issues"
+  },
+  "homepage": "https://github.com/VovanR/bemstyla#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
