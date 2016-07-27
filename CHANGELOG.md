@@ -1,3 +1,8 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/vovanr/bemstyla/compare/v1.4.0...v1.5.0) (2016-07-27)
+
+
+
 ## 1.4.0
 - Update dependencies
 - Code refactoring

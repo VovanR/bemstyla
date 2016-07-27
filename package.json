@@ -1,6 +1,6 @@
 {
   "name": "bemstyla",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Creates block__elem_mod-name_mod-val styl files",
   "license": "MIT",
   "repository": "VovanR/bemstyla",
