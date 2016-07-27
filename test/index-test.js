@@ -25,8 +25,6 @@ describe('index', function () {
 	it('should fire Jade parser if source contains `.jade` or `.pug`', function () {
 		sinon.stub(parserJade, 'parseFile', function () {
 			return {
-				/**
-				*/
 				then: function () {}
 			};
 		});
@@ -60,8 +58,6 @@ describe('index', function () {
 		sinon.stub(parserJade, 'parseFile');
 		sinon.stub(parserHTML, 'parseFile', function () {
 			return {
-				/**
-				*/
 				then: function () {}
 			};
 		});
@@ -87,11 +83,7 @@ describe('index', function () {
 	function stubCreator() {
 		sinon.stub(creator, 'touch', function () {
 			return {
-				/**
-				*/
 				then: function () {},
-				/**
-				*/
 				catch: function () {}
 			};
 		});

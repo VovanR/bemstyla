@@ -36,10 +36,10 @@ describe('creator', function () {
 
 	describe('_mkdir', function () {
 		/**
-		* @param {String} term
-		* @param {Function} done
-		* @param {Number} [index=0]
-		*/
+		 * @param {String} term
+		 * @param {Function} done
+		 * @param {Number} [index=0]
+		 */
 		function test(term, done, index) {
 			index = index === undefined ? -1 : index;
 			if (++index >= testData.length) {
@@ -107,10 +107,10 @@ describe('creator', function () {
 
 	describe('#touch', function () {
 		/**
-		* @param {String} term
-		* @param {Function} done
-		* @param {Number} [index=0]
-		*/
+		 * @param {String} term
+		 * @param {Function} done
+		 * @param {Number} [index=0]
+		 */
 		function test(term, done, index) {
 			index = index === undefined ? -1 : index;
 			if (++index >= testData.length) {
